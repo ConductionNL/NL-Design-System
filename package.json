@@ -1,11 +1,13 @@
 {
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0",
   "author": "Conduction",
   "description": "NL design system components created by Conduction",
   "license": "EUPL-1.2",
   "name": "@conductionnl/nl-design-system",
   "private": false,
-  "files": ["lib/**/*"],
+  "files": [
+    "lib/**/*"
+  ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "publishConfig": {
@@ -15,12 +17,11 @@
     "build": "tsc --jsx \"react-jsx\"",
     "format": "prettier --write \"components/**/*.tsx\" ",
     "lint": "tslint -p tsconfig.json",
-    "prepare" : "npm run build",
+    "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
     "version": "npm run format && git add -A components",
     "postversion": "git push && git push --tags"
-
   },
   "website": "https://www.conduction.nl/",
   "keywords": [
