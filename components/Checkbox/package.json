@@ -3,13 +3,22 @@
     "description": "A Checkbox component",
     "author": "Conduction",
     "license": "EUPL-1.2",
-    "version": "1.0.0-alpha.0",
+    "version": "1.0.0",
     "private": false,
     "scripts": {
-        "build": "tsc --jsx \"react-jsx\""
+        "build": "tsc --jsx \"react-jsx\"",
+        "format": "prettier --write \"src/*.tsx\" ",
+        "lint": "tslint -p tsconfig.json",
+        "prepare": "npm run build",
+        "prepublishOnly": "npm run lint"
       },
+    "files": [
+        "lib/**/*"
+    ],
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
     "publishConfig": {
-      "access": "public"
+        "access": "public"
     },
     "website": "https://www.conduction.nl/",
     "keywords": [
