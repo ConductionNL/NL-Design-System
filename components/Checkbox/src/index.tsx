@@ -1,7 +1,7 @@
 import * as _ from "lodash";
 import * as React from "react";
 
-export const CheckboxComponent = ({
+export const Checkbox = ({
   type = "",
   id = "",
   data = null,
