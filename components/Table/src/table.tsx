@@ -6,7 +6,7 @@ interface tableProps {
   rows: Array<Record<any, any>>;
 }
 
-export default function Table(props: tableProps) {
+export const Table = (props: tableProps) => {
   return (
     <table lang="nl" summary="Table." className="table">
       <thead>
@@ -43,4 +43,4 @@ export default function Table(props: tableProps) {
       </tbody>
     </table>
   );
-}
+};
