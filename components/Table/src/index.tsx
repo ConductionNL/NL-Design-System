@@ -2,9 +2,7 @@ import * as React from "react";
 import "./table.css";
 
 interface tableProps {
-  columns: Array<
-    Partial<Record<"field" | "headerName" | "renderCell" | "hidden", any>>
-  >;
+  columns: Array<Partial<Record<"field" | "headerName" | "renderCell" | "hidden", any>>>;
   rows: Array<Record<any, any>>;
 }
 
@@ -29,9 +27,7 @@ export default function Table(props: tableProps) {
                   {Object.keys(row).includes(column.field) && !column.hidden && (
                     <>
                       {column.renderCell ? (
-                        <td className="align-middle">
-                          {column.renderCell(row)}
-                        </td>
+                        <td className="align-middle">{column.renderCell(row)}</td>
                       ) : (
                         <td className="align-middle" key={index}>
                           {row[column.field]}
