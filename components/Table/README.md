@@ -1,3 +1,3 @@
-#Checkbox
+#Table
 
-Info over checkbox component
+Info over table component
