@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Table } from "../../Table/src/";
+import { Table } from "../../Table/src/table";
 
 interface waardepapierenTableProps {
   rows: Array<Record<any, any>>;
