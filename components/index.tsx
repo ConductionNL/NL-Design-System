@@ -1,2 +1,2 @@
-export * as Checkbox from "./Checkbox/src/checkbox";
-export * as Table from "./Table/src/table";
+export * from "./Checkbox/src/checkbox";
+export * from "./Table/src/table";
