@@ -2,7 +2,7 @@ import * as React from "react";
 import "../../style/table.css";
 
 interface tableProps {
-  columns: Array<Partial<Record<"field" | "headerName" | "renderCell" | "hidden", any>>>;
+  columns: Array<Partial<Record<"field" | "headerName" | "renderCell" | "hidden" | "valueFormatter", any>>>;
   rows: Array<Record<any, any>>;
 }
 
@@ -30,7 +30,7 @@ export const Table = (props: tableProps) => {
                         <td className="align-middle">{column.renderCell(row)}</td>
                       ) : (
                         <td className="align-middle" key={index}>
-                          {row[column.field]}
+                          {column.valueFormatter ? column.valueFormatter(row[column.field]) : row[column.field]}
                         </td>
                       )}
                     </>
