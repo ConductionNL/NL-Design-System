@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Table } from "../../Table/src/table";
+import { Table } from "../../Table/src/";
 
 interface waardepapierenTableProps {
   rows: Array<Record<any, any>>;
@@ -19,7 +19,7 @@ export const WaardepapierenTable = (props: waardepapierenTableProps) => {
     {
       field: "document",
       headerName: " ",
-      renderCell: (item) => {
+      renderCell: (item: { document: any; type: any; image: any }) => {
         return (
           <div className="float-right mr-4">
             <button
