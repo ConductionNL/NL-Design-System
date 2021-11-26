@@ -21,7 +21,11 @@ export const WaardepapierenTable = (props: waardepapierenTableProps) => {
       headerName: "Aangemaakt op",
       valueFormatter: (value: string | number | Date) => {
         const valueFormatted = new Date(value);
-        return `${valueFormatted}`;
+        return `${valueFormatted.toLocaleString("nl-nl", {
+          year: "numeric",
+          month: "numeric",
+          day: "numeric",
+        })}`;
       },
     },
     {
