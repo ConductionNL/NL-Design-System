@@ -15,7 +15,7 @@
   },
   "scripts": {
     "build": "tsc --jsx \"react-jsx\"",
-    "lint": "eslint --fix src/**/*.{js,jsx,ts,tsx}",
+    "lint": "eslint --fix components/**/*.{js,jsx,ts,tsx}",
     "prepare": "npm run build",
     "prepublishOnly": "npm run lint",
     "preversion": "npm run lint",
