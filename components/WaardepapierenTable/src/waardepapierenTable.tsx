@@ -11,10 +11,19 @@ export const WaardepapierenTable = (props: waardepapierenTableProps) => {
     {
       field: "type",
       headerName: "Type",
+      valueFormatter: (value: { replaceAll: (arg0: string, arg1: string) => any }) => {
+        const valueFormatted = value.replaceAll("_", " ");
+        return `${valueFormatted}`;
+      },
     },
     {
       field: "dateCreated",
       headerName: "Aangemaakt op",
+      valueFormatter: (value: string | number | Date) => {
+        const valueFormatted = new Date(value);
+        const result = valueFormatted.toLocaleString("en-GB");
+        return `${result}`;
+      },
     },
     {
       field: "document",
