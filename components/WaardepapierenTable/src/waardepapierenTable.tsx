@@ -19,7 +19,7 @@ export const WaardepapierenTable = (props: waardepapierenTableProps) => {
     {
       field: "document",
       headerName: " ",
-      renderCell: (item: { document: any; type: any; image: any }) => {
+      renderCell: (item: { document: string; type: string; image: string }) => {
         return (
           <div className="float-right mr-4">
             <button
