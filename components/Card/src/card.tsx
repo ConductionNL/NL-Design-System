@@ -11,7 +11,6 @@ interface CardProps {
  * @returns JSX of the generated Card.
  */
 export default function Card(props: CardProps) {
-
   return (
     <div className="utrecht-card card">
       <div className="utrecht-card-header card-header">
@@ -20,20 +19,16 @@ export default function Card(props: CardProps) {
             <h4 className="utrecht-heading-4 utrecht-heading-4--distanced utrecht-card-title">{props.title}</h4>
           </div>
           <div className="col-6 text-right">
-            {
-              props.cardHeader !== null &&
+            {props.cardHeader !== null &&
               props.cardHeader !== undefined &&
-              props.cardHeader.map((item) => (<>
-                {item.render()}
-              </>))
-            }
+              props.cardHeader.map((item) => <>{item.render()}</>)}
           </div>
         </div>
       </div>
       <div className="utrecht-card-body card-body">
-        {props.cardBody.map((item) => (<>
-          {item.render()}
-        </>))}
+        {props.cardBody.map((item) => (
+          <>{item.render()}</>
+        ))}
       </div>
     </div>
   );
