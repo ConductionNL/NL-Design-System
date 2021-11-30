@@ -1,12 +1,12 @@
 {
-    "compilerOptions": {
-      "jsx": "react",
-      "target": "es5",
-      "lib": ["es2016","dom"],
-      "module": "commonjs",
-      "declaration": true,
-      "outDir": "./lib",
-      "strict": true
-    },
+  "compilerOptions": {
+    "jsx": "react",
+    "target": "es5",
+    "lib": [ "es2016", "dom", "ES2021.String" ],
+    "module": "commonjs",
+    "declaration": true,
+    "outDir": "./lib",
+    "strict": true
+  },
     "exclude": ["node_modules", "**/__tests__/*"]
   }
