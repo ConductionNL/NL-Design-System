@@ -1,5 +1,6 @@
 import * as _ from "lodash";
 import * as React from "react";
+import "../../style/selectInput.css";
 
 interface SelectInputProps {
   options: Array<Record<"value" | "name", any>>;
