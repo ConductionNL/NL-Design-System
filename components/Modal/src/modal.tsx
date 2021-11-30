@@ -20,24 +20,14 @@ export default function Modal(props: ModalProps) {
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title">{props.title}</h5>
-            <button
-              type="button"
-              className="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            />
+            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
           </div>
-          <div className="modal-body">
-            {props.body !== null && props.body()}
-          </div>
-          {props.footer !== null &&
-          <div
-            className="modal-footer"
-            id={`modalFooter${props.id.replaceAll("-", "")}`}
-          >
-            {props.footer()}
-          </div>
-          }
+          <div className="modal-body">{props.body !== null && props.body()}</div>
+          {props.footer !== null && (
+            <div className="modal-footer" id={`modalFooter${props.id.replaceAll("-", "")}`}>
+              {props.footer()}
+            </div>
+          )}
         </div>
       </div>
     </div>

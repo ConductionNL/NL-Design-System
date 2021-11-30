@@ -25,13 +25,7 @@ export const createElement = (tagName, className = [], attributes = {}, value = 
   return element;
 };
 
-export const addElement = (
-    container,
-    newKey,
-    newValue,
-    inputName,
-    onClickFunction = null,
-    label = true) => {
+export const addElement = (container, newKey, newValue, inputName, onClickFunction = null, label = true) => {
   const key = document.getElementById(newKey);
   const value = document.getElementById(newValue);
   const form = document.getElementById(container);
