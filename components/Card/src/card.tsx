@@ -2,8 +2,8 @@ import * as React from "react";
 
 interface CardProps {
   title: string;
-  cardHeader?: Array<Record<"render", any>>;
-  cardBody: Array<Record<"render", any>>;
+  cardHeader?: any;
+  cardBody: any;
 }
 
 /**
@@ -18,20 +18,10 @@ export default function Card(props: CardProps) {
           <div className="col-6">
             <h4 className="utrecht-heading-4 utrecht-heading-4--distanced utrecht-card-title">{props.title}</h4>
           </div>
-          <div className="col-6 text-right">
-            {props.cardHeader !== undefined && props.cardHeader.map((item) => <>{item.render()}</>)}
-          </div>
+          <div className="col-6 text-right">{props.cardHeader !== null && props.cardHeader()}</div>
         </div>
       </div>
-      <div className="utrecht-card-body card-body">
-        {props.cardBody.map((item) => (
-          <>{item.render()}</>
-        ))}
-      </div>
+      <div className="utrecht-card-body card-body">{props.cardBody !== null && props.cardBody()}</div>
     </div>
   );
 }
-
-Card.defaultProps = {
-  cardHeader: undefined,
-};
