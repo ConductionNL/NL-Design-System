@@ -6,4 +6,4 @@ export * from "./SelectInput/src/selectInput";
 export * from "./Accordion/src/accordion";
 export * from "./Card/src/card";
 export * from "./Tabs/src/tabs";
-export * from "./Breadcrumbs/src/tabs";
+export * from "./Breadcrumbs/src/breadcrumbs";
