@@ -8,3 +8,4 @@ export * from "./Card/src/card";
 export * from "./Tabs/src/tabs";
 export * from "./Breadcrumbs/src/breadcrumbs";
 export * from "./Modal/src/modal";
+export * from "./List/src/list";
