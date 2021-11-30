@@ -19,7 +19,7 @@ export default function Card(props: CardProps) {
             <h4 className="utrecht-heading-4 utrecht-heading-4--distanced utrecht-card-title">{props.title}</h4>
           </div>
           <div className="col-6 text-right">
-            {props.cardHeader !== null && props.cardHeader.map((item) => <>{item.render()}</>)}
+            {props.cardHeader !== undefined && props.cardHeader.map((item) => <>{item.render()}</>)}
           </div>
         </div>
       </div>
@@ -33,5 +33,5 @@ export default function Card(props: CardProps) {
 }
 
 Card.defaultProps = {
-  cardHeader: null,
+  cardHeader: undefined,
 };
