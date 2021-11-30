@@ -14,7 +14,7 @@
     "access": "public"
   },
   "scripts": {
-    "copy-files": "copyfiles -u 1 components/**/*.css lib/",
+    "copy-files": "copyfiles -u 1 \"components/**/*.css lib/\"",
     "build": "tsc --jsx \"react-jsx\" && npm run copy-files",
     "lint": "eslint --fix \"components/**/*.{js,jsx,ts,tsx}\"",
     "prepare": "npm run build",
