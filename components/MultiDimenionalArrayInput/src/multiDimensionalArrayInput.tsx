@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as _ from "lodash";
-import { deleteElementFunction, addElement } from "../../elementCreation";
+//import { deleteElementFunction, addElement } from "../../elementCreation";
 
 interface MultiDimensionalArrayInputProps {
   data: Array<Record<"value" | "key", any>>;
@@ -13,7 +13,7 @@ interface MultiDimensionalArrayInputProps {
  * @returns TSX of the generated form.
  */
 export default function MultiDimensionalArrayInput(props: MultiDimensionalArrayInputProps) {
-  const deleteElement = deleteElementFunction;
+  //const deleteElement = deleteElementFunction;
 
   return (
     <>
@@ -39,14 +39,14 @@ export default function MultiDimensionalArrayInput(props: MultiDimensionalArrayI
                   </div>
                 </div>
                 <div className="col-2 d-flex mt-auto mb-4">
-                  <button
-                    value={item.key}
-                    onClick={deleteElement}
-                    type="button"
-                    className="utrecht-button utrecht-button-sm btn-sm btn-danger"
-                  >
-                    Delete
-                  </button>
+                  {/*<button*/}
+                  {/*  value={item.key}*/}
+                  {/*  onClick={deleteElement}*/}
+                  {/*  type="button"*/}
+                  {/*  className="utrecht-button utrecht-button-sm btn-sm btn-danger"*/}
+                  {/*>*/}
+                  {/*  Delete*/}
+                  {/*</button>*/}
                 </div>
               </div>
             );
@@ -69,21 +69,21 @@ export default function MultiDimensionalArrayInput(props: MultiDimensionalArrayI
           </div>
         </div>
         <div className="col-2 my-auto">
-          <button
-            type={"button"}
-            className="utrecht-button utrecht-button-sm btn-sm btn-success mr-2"
-            onClick={() => {
-              addElement(
-                `new${_.upperFirst(props.id)}`,
-                `new${_.upperFirst(props.id)}Key`,
-                `new${_.upperFirst(props.id)}Value`,
-                props.id,
-                deleteElement,
-              );
-            }}
-          >
-            Add
-          </button>
+          {/*<button*/}
+          {/*  type={"button"}*/}
+          {/*  className="utrecht-button utrecht-button-sm btn-sm btn-success mr-2"*/}
+          {/*  onClick={() => {*/}
+          {/*    addElement(*/}
+          {/*      `new${_.upperFirst(props.id)}`,*/}
+          {/*      `new${_.upperFirst(props.id)}Key`,*/}
+          {/*      `new${_.upperFirst(props.id)}Value`,*/}
+          {/*      props.id,*/}
+          {/*      deleteElement,*/}
+          {/*    );*/}
+          {/*  }}*/}
+          {/*>*/}
+          {/*  Add*/}
+          {/*</button>*/}
         </div>
       </div>
     </>
