@@ -16,7 +16,9 @@ export default function Card(props: CardProps) {
       <div className="utrecht-card-header card-header">
         <div className="utrecht-card-head-row card-head-row row">
           <div className="col-6">
-            <h4 className="utrecht-heading-4 utrecht-heading-4--distanced utrecht-card-title">{props.title}</h4>
+            <h4 className="utrecht-heading-4 utrecht-heading-4--distanced utrecht-card-title text-start">
+              {props.title}
+            </h4>
           </div>
           <div className="col-6 text-right">{props.cardHeader !== null && props.cardHeader()}</div>
         </div>
@@ -25,3 +27,8 @@ export default function Card(props: CardProps) {
     </div>
   );
 }
+
+Card.defaultProps = {
+  cardHeader: null,
+  cardBody: null,
+};
