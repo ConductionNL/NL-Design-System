@@ -7,3 +7,4 @@ export * from "./Accordion/src/accordion";
 export * from "./Card/src/card";
 export * from "./Tabs/src/tabs";
 export * from "./Breadcrumbs/src/breadcrumbs";
+export * from "./Modal/src/modal";
