@@ -9,5 +9,6 @@ export * from "./Tabs/src/tabs";
 export * from "./Breadcrumbs/src/breadcrumbs";
 export * from "./Modal/src/modal";
 export * from "./List/src/list";
+export * from "./Sidenav/src/sidenav";
 export * from "./Alert/src/alert";
 export * from "./ActionMenu/src/actionMenu";
