@@ -17,9 +17,7 @@ export default function CollapseBody(props: CollapseBodyProps) {
         {props.items.map((item) => (
           <div className="col" key={item.id}>
             <div className={`collapse ${props.multiple && "multi-collapse"}`} id={item.id}>
-              <div className="card card-body">
-                {item.body}
-              </div>
+              <div className="card card-body">{item.body}</div>
             </div>
           </div>
         ))}
