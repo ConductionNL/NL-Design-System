@@ -1,5 +1,5 @@
 import * as React from "react";
-import {useState} from "react";
+import { useState } from "react";
 import "../../style/switch.css";
 
 interface SwitchProps {
@@ -20,8 +20,8 @@ export default function Switch(props: SwitchProps) {
     <div>
       <label id={props.id}>{props.name}</label>
       <label className="toggle-switch">
-        <input type="checkbox" checked={isToggled} onChange={onToggle}/>
-        <span className="switch"/>
+        <input type="checkbox" checked={isToggled} onChange={onToggle} />
+        <span className="switch" />
       </label>
     </div>
   );
