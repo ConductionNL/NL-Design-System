@@ -1,15 +1,15 @@
 import * as React from "react";
 
-export enum VerticallyCentered{
-  centered= 'modal-dialog-centered',
-  scrollable = 'modal-dialog-centered modal-dialog-scrollable'
+export enum VerticallyCentered {
+  centered = "modal-dialog-centered",
+  scrollable = "modal-dialog-centered modal-dialog-scrollable",
 }
 
 // default value is 500px
-export enum Size{
-  small = 'modal-sm',
-  lage = 'modal-lg',
-  extraLage = 'modal-xl'
+export enum Size {
+  small = "modal-sm",
+  lage = "modal-lg",
+  extraLage = "modal-xl",
 }
 
 interface ModalProps {
@@ -35,7 +35,7 @@ export default function Modal(props: ModalProps) {
       aria-labelledby={`${props.id.replaceAll("-", "")}Label`}
       aria-hidden="true"
     >
-      <div className={`modal-dialog ${props.centered} ${ props.size !== null && props.size }`}>
+      <div className={`modal-dialog ${props.centered} ${props.size !== null && props.size}`}>
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title">{props.title}</h5>
