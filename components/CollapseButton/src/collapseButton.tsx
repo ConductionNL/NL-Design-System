@@ -15,12 +15,14 @@ interface BottomNavigationProps {
  */
 export default function CollapseButton(props: BottomNavigationProps) {
   return (
-    <button className={`btn btn-${props.className !== null ? props.className : 'primary'}`}
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target={props.multiple ? ".multi-collapse" : `#${props.id}`}
-            aria-expanded="false"
-            aria-controls={props.id}>
+    <button
+      className={`btn btn-${props.className !== null ? props.className : "primary"}`}
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target={props.multiple ? ".multi-collapse" : `#${props.id}`}
+      aria-expanded="false"
+      aria-controls={props.id}
+    >
       {props.name}
     </button>
   );

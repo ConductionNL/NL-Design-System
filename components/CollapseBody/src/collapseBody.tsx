@@ -13,14 +13,14 @@ interface CollapseBodyProps {
 export default function CollapseBody(props: CollapseBodyProps) {
   return (
     <div className="row">
-      <>{props.items.map((item) =>
-        <div className="col">
-          <div className={`collapse ${props.multiple && 'multi-collapse'}`}
-               id={item.id}>
-            <div className="card card-body">{item.body}</div>
+      <>
+        {props.items.map((item) => (
+          <div className="col">
+            <div className={`collapse ${props.multiple && "multi-collapse"}`} id={item.id} key={item.id}>
+              <div className="card card-body">{item.body}</div>
+            </div>
           </div>
-        </div>
-      )}
+        ))}
       </>
     </div>
   );
