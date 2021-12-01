@@ -10,6 +10,7 @@ interface GenericInputComponentProps {
   required?: boolean;
   minLength?: null | number;
   maxLength?: null | number;
+  disabled?: boolean;
 }
 
 /**
@@ -33,6 +34,7 @@ export const GenericInputComponent = (props: GenericInputComponentProps) => {
           required={props.required}
           minLength={props.minLength === null ? undefined : props.minLength}
           maxLength={props.maxLength === null ? undefined : props.maxLength}
+          disabled={props.disabled}
         />
       </div>
     </>
@@ -41,6 +43,7 @@ export const GenericInputComponent = (props: GenericInputComponentProps) => {
 
 GenericInputComponent.defaultProps = {
   data: null,
+  disabled: false,
   required: false,
   minLength: null,
   maxLength: null,
