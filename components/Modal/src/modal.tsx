@@ -55,4 +55,6 @@ export default function Modal(props: ModalProps) {
 
 Modal.defaultProps = {
   footer: null,
+  size: null,
+  centered: null
 };

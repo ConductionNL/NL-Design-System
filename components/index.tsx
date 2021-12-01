@@ -15,3 +15,4 @@ export * from "./ActionMenu/src/actionMenu";
 export * from "./CollapseBody/src/collapseBody";
 export * from "./CollapseButton/src/collapseButton";
 export * from "./Switch/src/switch";
+export * from "./BottomNavigation/src/bottomNavigation";
