@@ -11,12 +11,9 @@ interface AlertProps {
  * @returns JSX of the generated Alert.
  */
 export default function Alert(props: AlertProps) {
-
   return (
     <div className={`alert alert-${props.alertClass}`} role="alert">
-      {
-        props.body
-      }
+      {props.body}
     </div>
   );
 }
