@@ -11,7 +11,7 @@ interface BottomNavigationProps {
  * This components renders a horizontal menu.
  *
  * If multiple is true set the id's of the CollapseBody as the id.
- * @returns TSX of the generated CollapseButton.
+ * @returns JSX of the generated CollapseButton.
  */
 export default function CollapseButton(props: BottomNavigationProps) {
   return (
