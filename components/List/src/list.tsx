@@ -1,7 +1,7 @@
 import * as React from "react";
 
 interface ListProps {
-  items: Array<Record<"name", any>>;
+  items: Array<Record<"name" | "render", any>>;
 }
 
 /**
@@ -12,7 +12,7 @@ interface ListProps {
 export default function List(props: ListProps) {
   const liItems = props.items.map((item) => (
     <li className="list-group-item" key={item.name}>
-      {item.name}
+      {item.render !== undefined && item.render !== null ? item.render() : item.name}
     </li>
   ));
   return (
