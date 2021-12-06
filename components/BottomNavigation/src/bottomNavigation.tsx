@@ -11,7 +11,7 @@ interface BottomNavigationProps {
   items: Array<Partial<Record<"name" | "icon" | "link", any>>>;
   pageDescription?: string;
   breakpoint?: Breakpoint;
-  iconSize: string;
+  iconSize?: string;
 }
 
 /**
