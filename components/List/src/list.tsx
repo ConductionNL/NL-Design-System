@@ -1,7 +1,7 @@
 import * as React from "react";
 
 interface ListProps {
-  items: Array<Record<"name" | "render", any>>;
+  items: Array<Partial<Record<"name" | "render", any>>>;
 }
 
 /**
