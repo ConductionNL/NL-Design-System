@@ -21,9 +21,11 @@ interface BottomNavigationProps {
  */
 export default function BottomNavigation(props: BottomNavigationProps) {
   const navigationItems = props.items.map((item) => (
-    <a href={item.link}>
+    <a href={item.link} key={item.name}>
       <li className="utrecht-sidenav__item" key={item.name}>
-        <span><i className={item.icon} /> {item.name}</span>
+        <span>
+          <i className={item.icon} /> {item.name}
+        </span>
       </li>
     </a>
   ));
