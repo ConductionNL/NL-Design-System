@@ -1,4 +1,8 @@
+/*Small devices (landscape phones, 576px and down)*/
+@media (max-width: 576px) { .small{ display: none; } }
 
-.small {
+/*Medium devices (tablets, 768px and down)*/
+@media (max-width: 768px) { .medium{ display: none; } }
 
-}
+/*Large devices (desktops, 992px and down)*/
+@media (max-width: 992px) { .large{ display: none; } }
