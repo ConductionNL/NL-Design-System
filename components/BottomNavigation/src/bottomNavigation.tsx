@@ -26,7 +26,7 @@ export function BottomNavigation(props: BottomNavigationProps) {
   ));
 
   return (
-    <nav className={`utrecht-sidenav ${props.breakpoint}`}>
+    <nav className={`navbar fixed-bottom ${props.breakpoint}`}>
       <ul className="navbar nav">{navigationItems}</ul>
       {props.pageDescription !== null && (
         <>
