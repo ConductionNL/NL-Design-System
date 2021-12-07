@@ -13,7 +13,7 @@ interface BottomNavigationProps {
  * If multiple is true set the id's of the CollapseBody as the id.
  * @returns JSX of the generated CollapseButton.
  */
-export default function CollapseButton(props: BottomNavigationProps) {
+export function CollapseButton(props: BottomNavigationProps) {
   return (
     <button
       className={`btn btn-${props.className !== null ? props.className : "primary"}`}

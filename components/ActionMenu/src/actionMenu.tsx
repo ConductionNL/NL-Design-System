@@ -1,13 +1,8 @@
 import * as React from "react";
-import "../../style/actionmenu.css";
+import "../../style/actionMenu.css";
+import { Breakpoint } from "../../Enums/Breakpoint/breakpoint";
 
-export enum Breakpoint {
-  mobile = "small",
-  tablet = "medium",
-  desktop = "large",
-}
-
-interface ActionmenuProps {
+interface ActionMenuProps {
   items: Array<Partial<Record<"name" | "icon" | "link", any>>>;
   pageDescription?: string;
   breakpoint?: Breakpoint;
@@ -17,9 +12,9 @@ interface ActionmenuProps {
 /**
  * This components renders a horizontal menu.
  *
- * @returns JSX of the generated Actionmenu.
+ * @returns JSX of the generated ActionMenu.
  */
-export function Actionmenu(props: ActionmenuProps) {
+export function ActionMenu(props: ActionMenuProps) {
   const navigationItems = props.items.map((item) => (
     <a href={item.link} key={item.name}>
       <li className="utrecht-sidenav__item" key={item.name}>

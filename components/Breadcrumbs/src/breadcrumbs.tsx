@@ -7,9 +7,9 @@ interface BreadcrumbsProps {
 /**
  * This components renders bootstrap breadcrumbs.
  *
- * @returns TSX of the generated breadcrumbs.
+ * @returns JSX of the generated breadcrumbs.
  */
-export default function Breadcrumbs(props: BreadcrumbsProps) {
+export function Breadcrumbs(props: BreadcrumbsProps) {
   const liItems = props.items.map((item) => (
     <li className="utrecht-breadcrumb__item" key={item.name}>
       {item.render()}

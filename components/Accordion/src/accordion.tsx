@@ -7,9 +7,9 @@ interface AccordionProps {
 
 /**
  * This components renders an bootstrap accordion.
- * @returns TSX of the generated accordion.
+ * @returns JSX of the generated accordion.
  */
-export default function Accordion(props: AccordionProps) {
+export function Accordion(props: AccordionProps) {
   return (
     <div className="accordion mt-4" id={`${props.id}Accordion`}>
       {props.items.map((item) => (
