@@ -2,9 +2,9 @@ import * as React from "react";
 import "../../style/bottomNavigation.css";
 
 export enum BreakpointBottomNavigation {
-  mobile = "small",
-  tablet = "medium",
-  desktop = "large",
+  mobile = "mobile",
+  tablet = "tablet",
+  desktop = "desktop",
 }
 
 interface BottomNavigationProps {
