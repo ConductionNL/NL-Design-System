@@ -16,3 +16,4 @@ export * from "./CollapseButton/src/collapseButton";
 export * from "./Switch/src/switch";
 export * from "./ActionMenu/src/actionMenu";
 export * from "./BottomNavigation/src/bottomNavigation";
+export * from "./Enums/breakpoint";

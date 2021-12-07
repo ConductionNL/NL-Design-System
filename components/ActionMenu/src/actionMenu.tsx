@@ -1,6 +1,6 @@
 import * as React from "react";
 import "../../style/actionMenu.css";
-import { Breakpoint } from "../../Enums/Breakpoint/breakpoint";
+import { Breakpoint } from "../../Enums/breakpoint";
 
 interface ActionMenuProps {
   items: Array<Partial<Record<"name" | "icon" | "link", any>>>;
