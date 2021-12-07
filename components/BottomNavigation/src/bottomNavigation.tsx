@@ -1,12 +1,17 @@
 import * as React from "react";
 import "../../style/bottomNavigation.css";
-import { Breakpoint } from "../../Enums/breakpoint";
+
+export enum BreakpointBottomNavigation {
+  mobile = "small",
+  tablet = "medium",
+  desktop = "large",
+}
 
 interface BottomNavigationProps {
   items: Array<Partial<Record<"name" | "icon" | "link", any>>>;
   pageDescription?: string;
   iconSize?: string;
-  breakpoint?: Breakpoint;
+  breakpoint?: BreakpointBottomNavigation;
 }
 
 /**

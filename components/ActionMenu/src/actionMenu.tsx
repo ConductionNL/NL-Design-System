@@ -1,11 +1,16 @@
 import * as React from "react";
 import "../../style/actionMenu.css";
-import { Breakpoint } from "../../Enums/breakpoint";
+
+export enum BreakpointActionMenu {
+  mobile = "small",
+  tablet = "medium",
+  desktop = "large",
+}
 
 interface ActionMenuProps {
   items: Array<Partial<Record<"name" | "icon" | "link", any>>>;
   pageDescription?: string;
-  breakpoint?: Breakpoint;
+  breakpoint?: BreakpointActionMenu;
   iconSize?: string;
 }
 
