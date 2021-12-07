@@ -23,9 +23,7 @@ export function ActionMenu(props: ActionMenuProps) {
   const navigationItems = props.items.map((item) => (
     <a href={item.link} key={item.name}>
       <li className="utrecht-sidenav__item" key={item.name}>
-        <span>
-          <i className={item.icon} /> {item.name}
-        </span>
+        <span><i className={item.icon} /></span> {item.name}
       </li>
     </a>
   ));
