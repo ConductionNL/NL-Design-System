@@ -14,4 +14,5 @@ export * from "./Alert/src/alert";
 export * from "./CollapseBody/src/collapseBody";
 export * from "./CollapseButton/src/collapseButton";
 export * from "./Switch/src/switch";
+export * from "./ActionMenu/src/actionMenu";
 export * from "./BottomNavigation/src/bottomNavigation";

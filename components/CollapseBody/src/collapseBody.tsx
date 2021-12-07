@@ -10,7 +10,7 @@ interface CollapseBodyProps {
  *
  * @returns JSX of the generated CollapseBody.
  */
-export default function CollapseBody(props: CollapseBodyProps) {
+export function CollapseBody(props: CollapseBodyProps) {
   return (
     <div className="row">
       <>

@@ -1,8 +1,8 @@
-/*Small devices (landscape phones, 576px and down)*/
-@media (max-width: 576px) { .small{ display: none; } }
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) { .mobile{ display: none; } }
 
-/*Medium devices (tablets, 768px and down)*/
-@media (max-width: 768px) { .medium{ display: none; } }
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) { .tablet{ display: none; } }
 
-/*Large devices (desktops, 992px and down)*/
-@media (max-width: 992px) { .large{ display: none; } }
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) { .desktop{ display: none; } }

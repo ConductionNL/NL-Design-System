@@ -10,11 +10,11 @@ interface ArrayInputProps {
 
 /**
  * This components handles multidimensional array input forms.
- * @returns TSX of the generated form.
+ *
+ * @returns JSX of the generated form.
  */
-export default function ArrayInputComponent(props: ArrayInputProps) {
+export function ArrayInputComponent(props: ArrayInputProps) {
   //const deleteElement = deleteElementFunction;
-
   return (
     <>
       <span className="utrecht-form-label">{_.upperFirst(props.label ?? props.id)}</span>

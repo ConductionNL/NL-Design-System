@@ -1,7 +1,7 @@
 import * as React from "react";
 
 interface ListProps {
-  items: Array<Partial<Record<"name" | "render", any>>>;
+  items: Array<Partial<Record<"name" | "value", any>>>;
 }
 
 /**
@@ -9,15 +9,15 @@ interface ListProps {
  *
  * @returns JSX of the generated List.
  */
-export default function List(props: ListProps) {
+export function List(props: ListProps) {
   const liItems = props.items.map((item) => (
-    <li className="list-group-item" key={item.name}>
-      {item.render !== undefined && item.render !== null ? item.render() : item.name}
+    <li className="utrecht-unordered-list__item" key={item.name}>
+      {item.value !== null ? `${item.name}: ${item.value}` : item.name}
     </li>
   ));
   return (
     <section className="utrecht-html">
-      <ul className="list-group-item">{liItems}</ul>
+      <ul className="utrecht-unordered-list utrecht-unordered-list--distanced">{liItems}</ul>
     </section>
   );
 }

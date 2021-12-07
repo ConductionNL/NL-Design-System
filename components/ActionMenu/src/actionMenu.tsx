@@ -1,25 +1,25 @@
 import * as React from "react";
-import "../../style/bottomNavigation.css";
+import "../../style/actionMenu.css";
 
-export enum BreakpointBottomNavigation {
-  mobile = "mobile",
-  tablet = "tablet",
-  desktop = "desktop",
+export enum BreakpointActionMenu {
+  mobile = "small",
+  tablet = "medium",
+  desktop = "large",
 }
 
-interface BottomNavigationProps {
+interface ActionMenuProps {
   items: Array<Partial<Record<"name" | "icon" | "link", any>>>;
   pageDescription?: string;
+  breakpoint?: BreakpointActionMenu;
   iconSize?: string;
-  breakpoint?: BreakpointBottomNavigation;
 }
 
 /**
- * This components renders a vertical menu at the bottom of the page.
+ * This components renders a horizontal menu.
  *
- * @returns JSX of the generated Bottom navigation.
+ * @returns JSX of the generated ActionMenu.
  */
-export function BottomNavigation(props: BottomNavigationProps) {
+export function ActionMenu(props: ActionMenuProps) {
   const navigationItems = props.items.map((item) => (
     <a href={item.link} key={item.name}>
       <li className="utrecht-sidenav__item" key={item.name}>
@@ -31,8 +31,8 @@ export function BottomNavigation(props: BottomNavigationProps) {
   ));
 
   return (
-    <nav className={`utrecht-bottomNav  fixed-bottom ${props.breakpoint}`}>
-      <ul className="navbar nav">{navigationItems}</ul>
+    <nav className={`utrecht-sidenav ${props.breakpoint}`}>
+      <ul className="utrecht-sidenav__list">{navigationItems}</ul>
       {props.pageDescription !== null && (
         <>
           <br />

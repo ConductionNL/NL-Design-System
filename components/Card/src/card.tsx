@@ -11,7 +11,7 @@ interface CardProps {
  * This components renders a bootstrap card.
  * @returns JSX of the generated Card.
  */
-export default function Card(props: CardProps) {
+export function Card(props: CardProps) {
   return (
     <div className="utrecht-card card">
       <div className="utrecht-card-header card-header">

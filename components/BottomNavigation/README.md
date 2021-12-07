@@ -1,3 +1,3 @@
 #BottomNavigation
 
-Info over action menu component
+Info over bottom navigation component
