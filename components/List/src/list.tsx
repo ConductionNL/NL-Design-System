@@ -11,13 +11,13 @@ interface ListProps {
  */
 export function List(props: ListProps) {
   const liItems = props.items.map((item) => (
-    <li className="utrecht-unordered-list__item" key={item.name}>
+    <li className="list-item" key={item.name}>
       {item.value !== null ? `${item.name}: ${item.value}` : item.name}
     </li>
   ));
   return (
     <section className="utrecht-html">
-      <ul className="utrecht-unordered-list utrecht-unordered-list--distanced">{liItems}</ul>
+      <ul className="list">{liItems}</ul>
     </section>
   );
 }
