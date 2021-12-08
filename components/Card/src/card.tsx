@@ -34,7 +34,7 @@ export function Card(props: CardProps) {
           )}
         </div>
       </div>
-      <div className="utrecht-card-body card-body">{props.cardBody !== null && props.cardBody()}</div>
+      <div className="utrecht-card-body card-body">{props.cardBody != null && props.cardBody()}</div>
     </div>
   );
 }
