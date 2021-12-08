@@ -16,8 +16,8 @@ jobs:
       - name: git
         run: |
           git --version
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
+          git config user.name "ginokok1996"
+          git config user.email "ginokok1996@users.noreply.github.com"
           git checkout development
       - run: npm install
       - run: npm version patch
