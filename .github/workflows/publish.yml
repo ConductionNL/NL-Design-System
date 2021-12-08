@@ -12,7 +12,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 16
-          registry-url: https://registry.npmjs.org/
       - name: git
         run: |
           git --version
@@ -23,9 +22,9 @@ jobs:
         run: npm install
       - name: Update repository with new version
         run: npm version patch
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: Publish package
-        run: npm publish
+        run: |
+          npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
+          npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
