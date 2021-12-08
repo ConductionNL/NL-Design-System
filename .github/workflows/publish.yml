@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 16
@@ -16,15 +16,10 @@ jobs:
       - name: git
         run: |
           git --version
-          git config --global user.name 'ginokok1996'
-          git config --global user.email 'ginokok1996@users.noreply.github.com'
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
           git checkout development
       - run: npm install
       - run: npm version patch
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-      - run: |
-          git --version
-          git config --global user.name 'ginokok1996'
-          git config --global user.email 'ginokok1996@users.noreply.github.com'
-          git push && git push origin --tags
