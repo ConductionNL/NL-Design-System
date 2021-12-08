@@ -23,4 +23,8 @@ jobs:
       - run: npm version patch
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-      - run: git push && git push origin --tags
+      - run: |
+          git --version
+          git config --global user.name 'ginokok1996'
+          git config --global user.email 'ginokok1996@users.noreply.github.com'
+          git push && git push origin --tags
