@@ -23,7 +23,7 @@ export function Card(props: CardProps) {
                   {props.title}
                 </h4>
               </div>
-              <div className="col-6 text-right">{props.cardHeader !== null && props.cardHeader}</div>
+              <div className="col-6 text-right">{props.cardHeader !== null && props.cardHeader()}</div>
             </>
           ) : (
             <div className="col-12">
@@ -34,7 +34,7 @@ export function Card(props: CardProps) {
           )}
         </div>
       </div>
-      <div className="utrecht-card-body card-body">{props.cardBody !== null && props.cardBody}</div>
+      <div className="utrecht-card-body card-body">{props.cardBody !== null && props.cardBody()}</div>
     </div>
   );
 }

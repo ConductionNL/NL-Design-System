@@ -1,0 +1,31 @@
+name: Publish
+
+on:
+  push:
+    branches:
+      - development
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+      - name: git
+        run: |
+          git --version
+          git config user.name "GitHub Version patch"
+          git config user.email "<>"
+          git checkout development
+          git clean -f -n
+      - name: Run npm install
+        run: npm install
+      - name: Update repository with new version
+        run: npm version patch
+      - name: Publish package
+        run: |
+          npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
+          npm publish
+        env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
