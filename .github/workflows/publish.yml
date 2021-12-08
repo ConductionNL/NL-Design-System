@@ -18,6 +18,7 @@ jobs:
           git config user.name "GitHub Version patch"
           git config user.email "<>"
           git checkout development
+          git pull
       - name: Run npm install
         run: npm install
       - name: Update repository with new version
