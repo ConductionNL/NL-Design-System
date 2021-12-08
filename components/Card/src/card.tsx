@@ -8,7 +8,7 @@ interface CardProps {
 }
 
 /**
- * This components renders a bootstrap card.
+ * This components renders a bootstrap card..
  * @returns JSX of the generated Card.
  */
 export function Card(props: CardProps) {
