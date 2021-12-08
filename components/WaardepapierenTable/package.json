@@ -1,6 +1,6 @@
 {
-    "name": "@conductionnl/checkbox",
-    "description": "A Checkbox component",
+    "name": "@conductionnl/waardepapierentable",
+    "description": "A Waardepapieren Table component",
     "author": "Conduction",
     "license": "EUPL-1.2",
     "version": "1.0.0",

@@ -1,6 +1,6 @@
 {
-    "name": "@conductionnl/checkbox",
-    "description": "A Checkbox component",
+    "name": "@conductionnl/switch",
+    "description": "A Switch component",
     "author": "Conduction",
     "license": "EUPL-1.2",
     "version": "1.0.0",
@@ -27,7 +27,7 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/ConductionNL/NL-Design-System.git",
-        "directory": "components/Checkbox"
+        "directory": "components/Switch"
     },
     "bugs": "https://github.com/ConductionNL/NL-Design-System/issues",
     "dependencies": {

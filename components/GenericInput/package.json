@@ -1,6 +1,6 @@
 {
-    "name": "@conductionnl/checkbox",
-    "description": "A Checkbox component",
+    "name": "@conductionnl/genericinput",
+    "description": "A Generic Input component",
     "author": "Conduction",
     "license": "EUPL-1.2",
     "version": "1.0.0",
