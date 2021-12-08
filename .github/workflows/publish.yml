@@ -16,10 +16,16 @@ jobs:
       - name: git
         run: |
           git --version
-          git config user.name "GitHub Actions Bot"
+          git config user.name "GitHub Version patch"
           git config user.email "<>"
           git checkout development
-      - run: npm install
-      - run: npm version patch
+      - name: Run npm install
+        run: npm install
+      - name: Update repository with new version
+        run: npm version patch
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - name: Publish package
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
