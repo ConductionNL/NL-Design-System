@@ -18,13 +18,14 @@ jobs:
           git config user.name "GitHub Version patch"
           git config user.email "<>"
           git checkout development
+          git add . && git commit
       - name: Run npm install
         run: npm install
       - name: Update repository with new version
         run: npm version patch
-      # - name: Publish package
-      #   run: |
-      #     npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
-      #     npm publish
-      #   env:
-      #     NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+      - name: Publish package
+        run: |
+          npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
+          npm publish
+        env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
