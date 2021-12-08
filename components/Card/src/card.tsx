@@ -8,7 +8,7 @@ interface CardProps {
 }
 
 /**
- * This components renders a bootstrap card..
+ * This components renders a bootstrap card.
  * @returns JSX of the generated Card.
  */
 export function Card(props: CardProps) {
@@ -34,7 +34,7 @@ export function Card(props: CardProps) {
           )}
         </div>
       </div>
-      <div className="utrecht-card-body card-body">{props.cardBody != null && props.cardBody()}</div>
+      <div className="utrecht-card-body card-body">{props.cardBody !== null && props.cardBody()}</div>
     </div>
   );
 }
