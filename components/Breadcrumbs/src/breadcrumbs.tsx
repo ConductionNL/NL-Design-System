@@ -12,13 +12,7 @@ interface BreadcrumbsProps {
 export function Breadcrumbs(props: BreadcrumbsProps) {
   const liItems = props.items.map((item) => (
     <li className="utrecht-breadcrumb__item" key={item.name}>
-      { item.link !== undefined && item.link !== null ? (
-      <a href={item.link} >
-        {item.render()}
-      </a> 
-      ) : (
-        item.render()
-      )}
+      {item.link !== undefined && item.link !== null ? <a href={item.link}>{item.render()}</a> : item.render()}
     </li>
   ));
 
