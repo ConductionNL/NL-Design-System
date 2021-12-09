@@ -1,7 +1,7 @@
 import * as React from "react";
 
 interface BreadcrumbsProps {
-  items: Array<Partial<Record<"name" | "render", any>>>;
+  items: Array<Partial<Record<"name" | "render" | "link", any>>>;
 }
 
 /**
@@ -12,7 +12,13 @@ interface BreadcrumbsProps {
 export function Breadcrumbs(props: BreadcrumbsProps) {
   const liItems = props.items.map((item) => (
     <li className="utrecht-breadcrumb__item" key={item.name}>
-      {item.render()}
+      { item.link !== undefined && item.link !== null ? (
+      <a href={item.link} >
+        {item.render()}
+      </a> 
+      ) : (
+        item.render()
+      )}
     </li>
   ));
 
