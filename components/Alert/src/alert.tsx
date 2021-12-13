@@ -13,18 +13,23 @@ interface AlertProps {
  * @returns JSX of the generated Alert.
  */
 export function Alert(props: AlertProps) {
-  return (
-    <>
-      <div id={props.id ? props.id + "Alert" : "Alert"} className={`alert alert-${props.alertClass}`} role="alert">
-        {props.body}
-      </div>
 
-      {setTimeout(
+  React.useEffect(() => {
+    if (typeof window !== "undefined" && typeof window !== undefined) {
+      setTimeout(
         function () {
           document.getElementById(props.id + "Alert")?.remove();
         },
         props.removeAfterMS ? props.removeAfterMS : 5000,
-      )}
+      )
+    }
+  }, []);
+
+  return (
+    <>
+      <div id={props.id ? props.id + "Alert" : "Alert"} className={`alert alert-${props.alertClass}`} role="alert">
+        {props.body()}
+      </div>
     </>
   );
 }
