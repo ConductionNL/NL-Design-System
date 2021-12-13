@@ -3,6 +3,8 @@ import * as React from "react";
 interface AlertProps {
   body: any;
   alertClass: string;
+  id?: string;
+  removeAfterMS?: number;
 }
 
 /**
@@ -12,8 +14,17 @@ interface AlertProps {
  */
 export function Alert(props: AlertProps) {
   return (
-    <div className={`alert alert-${props.alertClass}`} role="alert">
-      {props.body}
-    </div>
+    <>
+      <div id={props.id ? props.id + "Alert" : "Alert"} className={`alert alert-${props.alertClass}`} role="alert">
+        {props.body}
+      </div>
+
+      {setTimeout(
+        function () {
+          document.getElementById(props.id + "Alert")?.remove();
+        },
+        props.removeAfterMS ? props.removeAfterMS : 5000,
+      )}
+    </>
   );
 }
