@@ -29,6 +29,7 @@ export function Card(props: CardProps) {
   return (
     <div className="utrecht-card card">
       <div className="utrecht-card-header card-header" style={dividerStyle}>
+        {console.log(dividerStyle)}
         <div className="utrecht-card-head-row card-head-row row">
           {props.title !== null && props.cardHeader !== null && (
             <>
