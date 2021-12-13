@@ -13,26 +13,24 @@ interface CardProps {
  * @returns JSX of the generated Card.
  */
 export function Card(props: CardProps) {
+  const [dividerStyle, setDividerStyle] = React.useState({});
 
-  const removeDivider = () => {
-    let style;
-    if (props.divider === false) {
-      style = {
-        borderBottom: "0 !important",
-        paddingBottom: "0 !important"
+  React.useEffect(() => {
+    if (typeof window !== "undefined" && typeof window !== undefined) {
+      if (props.divider === false) {
+        setDividerStyle({
+          borderBottom: "0 !important",
+          paddingBottom: "0 !important",
+        });
       }
-    } else {
-      style = {};
     }
-    return style;
-    
-  }
+  }, []);
 
   return (
     <div className="utrecht-card card">
-      <div className="utrecht-card-header card-header">
-        <div className="utrecht-card-head-row card-head-row row" style={removeDivider} >
-          { props.title !== null && props.cardHeader !== null && (
+      <div className="utrecht-card-header card-header" style={dividerStyle}>
+        <div className="utrecht-card-head-row card-head-row row">
+          {props.title !== null && props.cardHeader !== null && (
             <>
               <div className="col-6">
                 <h4 className="utrecht-heading-4 utrecht-heading-4--distanced utrecht-card-title text-start">
