@@ -33,3 +33,9 @@ export function List(props: ListProps) {
     </section>
   );
 }
+
+
+List.defaultProps = {
+  href: null,
+  value: null,
+};
