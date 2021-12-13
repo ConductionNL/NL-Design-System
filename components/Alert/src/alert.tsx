@@ -13,7 +13,6 @@ interface AlertProps {
  * @returns JSX of the generated Alert.
  */
 export function Alert(props: AlertProps) {
-
   React.useEffect(() => {
     if (typeof window !== "undefined" && typeof window !== undefined) {
       setTimeout(
@@ -21,7 +20,7 @@ export function Alert(props: AlertProps) {
           document.getElementById(props.id + "Alert")?.remove();
         },
         props.removeAfterMS ? props.removeAfterMS : 5000,
-      )
+      );
     }
   }, []);
 
