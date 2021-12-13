@@ -34,7 +34,6 @@ export function List(props: ListProps) {
   );
 }
 
-
 List.defaultProps = {
   href: null,
   value: null,
