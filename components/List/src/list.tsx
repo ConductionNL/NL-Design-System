@@ -1,9 +1,8 @@
 import * as React from "react";
 
 interface ListProps {
-  items: Array<Partial<Record<"name" | "value", any>>>;
+  items: Array<Partial<Record<"name" | "value" | "href", any>>>;
   link?: boolean;
-  href?: string;
   group?: boolean;
   groupFlush?: boolean;
   icon?: any;
@@ -17,7 +16,7 @@ interface ListProps {
 export function List(props: ListProps) {
   const liItems = props.items.map((item) => (
     props.link ? (
-      <a href={props.href !== null ? props.href : '#'} className="list-group-item list-group-item-action" key={item.name}>
+      <a href={item.href !== null ? item.href : '#'} className="list-group-item list-group-item-action" key={item.name}>
         {item.value == null ? item.name : `${item.name}: ${item.value}`}
         {props.icon !== null && <span className="list-icon">{props.icon()}</span>}
       </a>
