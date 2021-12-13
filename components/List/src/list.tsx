@@ -19,11 +19,12 @@ export function List(props: ListProps) {
     props.link ? (
       <a href={props.href !== null ? props.href : '#'} className="list-group-item list-group-item-action" key={item.name}>
         {item.value == null ? item.name : `${item.name}: ${item.value}`}
-        {props.icon !== null && props.icon()}
+        {props.icon !== null && <span className="list-icon">{props.icon()}</span>}
       </a>
     ) : (
       <li className={props.group ? "list-group-item" : "list-item"} key={item.name}>
         {item.value == null ? item.name : `${item.name}: ${item.value}`}
+        {props.icon !== null && <span className="list-icon">{props.icon()}</span>}
       </li>
     )
   ));
