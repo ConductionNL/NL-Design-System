@@ -27,7 +27,7 @@ export function Alert(props: AlertProps) {
   return (
     <>
       <div
-        style={{ position: "fixed", left: "50px", top: "90px", transform: "translateX(-50%)" }}
+        style={{ position: "fixed", left: "50%", top: "90px", transform: "translateX(-50%)" }}
         id={props.id ? props.id + "Alert" : "Alert"}
         className={`alert alert-${props.alertClass} utrecht-alert`}
         role="alert"
