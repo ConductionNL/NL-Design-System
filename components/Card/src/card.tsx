@@ -16,20 +16,17 @@ export function Card(props: CardProps) {
   const [dividerStyle, setDividerStyle] = React.useState({});
 
   React.useEffect(() => {
-    if (typeof window !== "undefined" && typeof window !== undefined) {
-      if (props.divider === false) {
-        setDividerStyle({
-          borderBottom: "0 !important",
-          paddingBottom: "0 !important",
-        });
-      }
+    if (props.divider === false) {
+      setDividerStyle({
+        borderBottom: "0 !important",
+        paddingBottom: "0 !important",
+      });
     }
   }, []);
 
   return (
     <div className="utrecht-card card">
       <div className="utrecht-card-header card-header" style={dividerStyle}>
-        {console.log(dividerStyle)}
         <div className="utrecht-card-head-row card-head-row row">
           {props.title !== null && props.cardHeader !== null && (
             <>
