@@ -17,7 +17,7 @@ export function List(props: ListProps) {
   const liItems = props.items.map((item) =>
     props.link ? (
       <a href={item.href !== null ? item.href : "#"} className="list-group-item list-group-item-action" key={item.name}>
-        {item.value === null ? item.name : `${item.name}: ${item.value}`}
+        {item.name}
         {props.icon !== null && <span className="list-icon">{props.icon()}</span>}
       </a>
     ) : (
@@ -33,8 +33,3 @@ export function List(props: ListProps) {
     </section>
   );
 }
-
-List.defaultProps = {
-  href: null,
-  value: null,
-};
