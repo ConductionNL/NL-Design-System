@@ -6,7 +6,7 @@ interface TabsProps {
 
 /**
  * This components renders tabs.
- * @returns TSX of the generated tabs.
+ * @returns JSX of the generated tabs.
  */
 export function Tabs(props: TabsProps) {
   const navItems = props.items.map((item) => (
