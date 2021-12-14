@@ -21,7 +21,7 @@ export const Table = (props: tableProps) => {
       <tbody>
         {props.rows.map((row, index) => (
           <>
-            <tr>
+            <tr key={index}>
               {props.columns.map((column) => (
                 <>
                   {Object.keys(row).includes(column.field) && !column.hidden && (
