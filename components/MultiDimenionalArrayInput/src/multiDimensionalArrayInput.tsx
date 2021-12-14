@@ -14,7 +14,6 @@ interface MultiDimensionalArrayInputProps {
  * @returns JSX of the generated form.
  */
 export function MultiDimensionalArrayInput(props: MultiDimensionalArrayInputProps) {
-
   return (
     <>
       <span className="utrecht-form-label">{_.upperFirst(props.label ?? props.id)}</span>
