@@ -8,7 +8,7 @@ interface TabsProps {
  * This components renders tabs.
  * @returns TSX of the generated tabs.
  */
-export default function Tabs(props: TabsProps) {
+export function Tabs(props: TabsProps) {
   const navItems = props.items.map((item) => (
     <li className="nav-item" role="presentation" key={item.name}>
       <a
