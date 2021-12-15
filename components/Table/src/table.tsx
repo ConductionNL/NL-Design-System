@@ -21,13 +21,15 @@ export const Table = (props: tableProps) => {
       <tbody>
         {props.rows.map((row, index) => (
           <>
-            <tr>
+            <tr key={index}>
               {props.columns.map((column) => (
                 <>
                   {Object.keys(row).includes(column.field) && !column.hidden && (
                     <>
                       {column.renderCell ? (
-                        <td className="align-middle">{column.renderCell(row)}</td>
+                        <td className="align-middle" key={index}>
+                          {column.renderCell(row)}
+                        </td>
                       ) : (
                         <td className="align-middle" key={index}>
                           {column.valueFormatter ? column.valueFormatter(row[column.field]) : row[column.field]}
