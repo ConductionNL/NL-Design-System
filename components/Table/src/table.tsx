@@ -24,7 +24,7 @@ export const Table = (props: tableProps) => {
             <tr key={index}>
               {props.columns.map((column) => (
                 <>
-                  {Object.keys(row).includes(column.field) && !column.hidden && (
+                  {Object.keys(row).includes(column.field) && !column.hidden ? (
                     <>
                       {column.renderCell ? (
                         <td className="align-middle" key={index}>
@@ -36,6 +36,8 @@ export const Table = (props: tableProps) => {
                         </td>
                       )}
                     </>
+                  ) : (
+                    <td></td>
                   )}
                 </>
               ))}
