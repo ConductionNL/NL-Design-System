@@ -36,8 +36,9 @@ export const Table = (props: tableProps) => {
                         </td>
                       )}
                     </>
-                  ) : 
-                  <td></td>}
+                  ) : (
+                    <td></td>
+                  )}
                 </>
               ))}
             </tr>
