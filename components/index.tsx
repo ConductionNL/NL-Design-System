@@ -16,3 +16,4 @@ export * from "./CollapseButton/src/collapseButton";
 export * from "./Switch/src/Switch";
 export * from "./ActionMenu/src/actionMenu";
 export * from "./BottomNavigation/src/bottomNavigation";
+export * from "./TextArea/src/TextArea";
