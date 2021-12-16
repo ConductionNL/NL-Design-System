@@ -20,7 +20,7 @@ export const SelectInputComponent = (props: SelectInputProps) => {
     <>
       <div className="input-group">
         <label className="utrecht-form-label" htmlFor={props.id}>
-          {_.upperFirst(props.nameOverride ?? props.name)}
+          {_.upperFirst(props.nameOverride ?? props.name) + props.required ? " *" : ""}
         </label>
         <select
           name={props.name}
