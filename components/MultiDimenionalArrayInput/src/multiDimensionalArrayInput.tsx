@@ -2,7 +2,7 @@ import * as React from "react";
 import * as _ from "lodash";
 
 interface MultiDimensionalArrayInputProps {
-  data: any;
+  data: Array<any>;
   id?: string;
   label?: string;
   deleteFunction?: any;
