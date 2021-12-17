@@ -2,7 +2,7 @@ import * as React from "react";
 import * as _ from "lodash";
 
 interface MultiDimensionalArrayInputProps {
-  data: Array<any>;
+  data: Record<string, string>;
   id?: string;
   label?: string;
   deleteFunction?: any;
@@ -20,7 +20,7 @@ export function MultiDimensionalArrayInput(props: MultiDimensionalArrayInputProp
       <div id={`new${_.upperFirst(props.id)}`}>
         {props.data !== undefined &&
           props.data !== null &&
-          props.data.map(([key, value]) => {
+          Object.entries(props.data).map(([key, value]) => {
             return (
               <div key={value} className={`row ${key}`}>
                 <div className="col-5">
