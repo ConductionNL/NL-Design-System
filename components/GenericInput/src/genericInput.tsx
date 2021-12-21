@@ -11,6 +11,9 @@ interface GenericInputComponentProps {
   minLength?: null | number;
   maxLength?: null | number;
   disabled?: boolean;
+  togglePassword?: boolean;
+  eyeLeft?: string;
+  eyeTop?: string;
 }
 
 /**
@@ -19,6 +22,17 @@ interface GenericInputComponentProps {
  * @returns Jsx of the generated form.
  */
 export const GenericInputComponent = (props: GenericInputComponentProps) => {
+  const togglePassword = (e: any) => {
+    e.target.classList.toggle("fa-eye");
+    e.target.classList.toggle("fa-eye-slash");
+    const input = document.getElementById(props.id) as HTMLInputElement;
+    if (input.type === "password") {
+      input.type = "text";
+    } else {
+      input.type = "password";
+    }
+  };
+
   return (
     <>
       <div className="input-group">
@@ -37,6 +51,14 @@ export const GenericInputComponent = (props: GenericInputComponentProps) => {
           maxLength={props.maxLength === null ? undefined : props.maxLength}
           disabled={props.disabled}
         />
+        {props.togglePassword === true && (
+          <i
+            className="fas fa-eye-slash"
+            id="togglePassword"
+            style={{ cursor: "pointer", position: "relative", left: props.eyeLeft, top: props.eyeTop }}
+            onClick={togglePassword}
+          ></i>
+        )}
       </div>
     </>
   );
@@ -48,4 +70,7 @@ GenericInputComponent.defaultProps = {
   required: false,
   minLength: null,
   maxLength: null,
+  togglePassword: false,
+  eyeLeft: "92%",
+  eyeTop: "-27px",
 };
