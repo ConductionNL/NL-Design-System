@@ -20,9 +20,9 @@ export const Checkbox = (props: CheckboxProps) => {
           type={props.type}
           id={props.id}
           name={props.nameAttribute}
-          defaultChecked={props.data !== null}
+          defaultChecked={props.data === true ? true : false}
           defaultValue={props.defaultValue === "false" ? "false" : "true"}
-          required={props.required !== false}
+          required={props.required === true ? true : false}
         />
         <label className="form-check-label" htmlFor={props.id}>
           {_.upperFirst(props.nameLabel)}

@@ -2,7 +2,7 @@ import * as React from "react";
 import * as _ from "lodash";
 
 interface MultiDimensionalArrayInputProps {
-  data: Array<Record<"key" | "value", any>>;
+  data: Record<string, string>;
   id?: string;
   label?: string;
   deleteFunction?: any;
@@ -20,26 +20,26 @@ export function MultiDimensionalArrayInput(props: MultiDimensionalArrayInputProp
       <div id={`new${_.upperFirst(props.id)}`}>
         {props.data !== undefined &&
           props.data !== null &&
-          props.data.map((item) => {
+          Object.entries(props.data).map(([key, value]) => {
             return (
-              <div key={item.value} className={`row ${item.key}`}>
+              <div key={value} className={`row ${key}`}>
                 <div className="col-5">
                   <div className="form-group">
-                    <label htmlFor={item.value} className="utrecht-form-label">
-                      {item.key}
+                    <label htmlFor={value} className="utrecht-form-label">
+                      {key}
                     </label>
                     <input
                       type="text"
                       id="value"
-                      name={`${props.id}[${item.key}]`}
-                      defaultValue={item.value}
+                      name={`${props.id}[${key}]`}
+                      defaultValue={value}
                       className="utrecht-textbox utrecht-textbox--html-input mb-2"
                     />
                   </div>
                 </div>
                 <div className="col-2 d-flex mt-auto mb-4">
                   <button
-                    value={item.key}
+                    value={key}
                     onClick={props.deleteFunction}
                     type="button"
                     className="utrecht-button utrecht-button-sm btn-sm btn-danger"

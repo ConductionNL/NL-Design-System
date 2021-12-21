@@ -24,6 +24,7 @@ export const GenericInputComponent = (props: GenericInputComponentProps) => {
       <div className="input-group">
         <label htmlFor={props.id} className="utrecht-form-label">
           {_.upperFirst(props.nameOverride ?? props.name)}
+          {props.required && " *"}
         </label>
         <input
           className="utrecht-textbox utrecht-textbox--html-input"
