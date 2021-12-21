@@ -9,7 +9,7 @@ interface SpinnerProps {
  *
  * @returns JSX of the generated Switch.
  */
-export default function Spinner(props: SpinnerProps) {
+export function Spinner(props: SpinnerProps) {
   return (
     <div className={"text-center " + props.paddingX}>
       <div className="spinner-border text-primary" style={{ width: "3rem", height: "3rem" }} role="status">
