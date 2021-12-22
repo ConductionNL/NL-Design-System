@@ -12,7 +12,7 @@ interface SwitchProps {
  *
  * @returns JSX of the generated Switch.
  */
-export default function Switch(props: SwitchProps) {
+export function Switch(props: SwitchProps) {
   const [isToggled, setIsToggled] = useState(false);
   const onToggle = () => setIsToggled(!isToggled);
 

@@ -9,7 +9,7 @@ interface SidenavProps {
  *
  * @returns JSX of the generated Sidenav.
  */
-export default function Sidenav(props: SidenavProps) {
+export function Sidenav(props: SidenavProps) {
   const liNav = props.items.map((item) => (
     <li className="nav-item" key={item.name}>
       <a
