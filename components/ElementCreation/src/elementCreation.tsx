@@ -1,12 +1,17 @@
-import * as React from "react";
-
 /**
  * This components handles element creations.
  * @returns JSX of the generated form.
  */
-export const createElement = (tagName: any, className: any[], attributes?: {}|null , value?: string, innerText?: string, onclick?: any ) => {
+export const createElement = (
+  tagName: any,
+  className: any[],
+  attributes?: Record<any, any>,
+  value?: string,
+  innerText?: string,
+  onclick?: any,
+) => {
   // create element
-  let element = document.createElement(tagName);
+  const element = document.createElement(tagName);
 
   // set element value
   element.value = value;
@@ -31,97 +36,92 @@ export const createElement = (tagName: any, className: any[], attributes?: {}|nu
   return element;
 };
 
-export const addElement = (container: any, newKey: any, newValue: any , inputName: any, onClickFunction?: any, label?: true) => {
+export const addElement = (
+  container: any,
+  newKey: any,
+  newValue: any,
+  inputName: any,
+  onClickFunction?: any,
+  label?: true,
+) => {
+  const key = document.getElementById(newKey);
+  const value = document.getElementById(newValue);
+  const form = document.getElementById(container);
 
-    let key = document.getElementById(newKey);
-    let value = document.getElementById(newValue);
-    let form = document.getElementById(container);
+  if (key.value.length === 0 || value.value.length === 0) {
+    return;
+  }
 
-    if (key.value.length == 0 || value.value.length == 0) {
-      return;
-    }
+  //create row
+  const formGroupRow = createElement("div", ["row", key.value.replaceAll(" ", "-")]);
 
-    //create row
-    let formGroupRow = createElement("div", ["row", key.value.replaceAll(" ", "-")])
+  //set classNames for elements
 
-    //set classNames for elements
+  // create input value
+  const formGroupColValue = createElement("div", ["col-5"]);
+  const formGroupValue = createElement("div", ["from-group"]);
+  let inputLabel = null;
+  if (label) {
+    inputLabel = createElement("label", ["utrecht-form-label"], { for: value.value }, "", `${key.value}`);
+  }
+  const inputValue = createElement(
+    "input",
+    ["utrecht-textbox", "utrecht-textbox--html-input", "mb-2"],
+    {
+      type: "text",
+      id: value.value,
+      name: `${inputName}[${key.value.replaceAll(" ", "-")}]`,
+    },
+    `${value.value}`,
+  );
 
-    // create input value
-    let formGroupColValue = createElement("div", ["col-5"]);
-    let formGroupValue = createElement("div", ["from-group"]);
-    let inputLabel = null;
-    if (label) {
-      inputLabel = createElement(
-        "label",
-        ["utrecht-form-label"],
-        { for: value.value },
-        "",
-        `${key.value}`
-      );
-    }
-    let inputValue = createElement(
-      "input",
-      ["utrecht-textbox", "utrecht-textbox--html-input", "mb-2"],
-      {
-        type: "text",
-        id: value.value,
-        name: `${inputName}[${key.value.replaceAll(" ", "-")}]`,
-      },
-      `${value.value}`
-    );
+  //create delete button
+  const formGroupButton = createElement("div", ["col-2", "d-flex", "mt-auto", "mb-3"]);
+  const deleteButton = createElement(
+    "button",
+    ["utrecht-button", "utrecht-button-sm", "btn-sm", "btn-danger"],
+    { type: "button" },
+    `${key.value}`,
+    "Delete",
+    onClickFunction,
+  );
 
-    //create delete button
-    let formGroupButton = createElement("div", [
-      "col-2",
-      "d-flex",
-      "mt-auto",
-      "mb-3",
-    ]);
-    let deleteButton = createElement(
-      "button",
-      ["utrecht-button", "utrecht-button-sm", "btn-sm", "btn-danger"],
-      { type: "button" },
-      `${key.value}`,
-      "Delete",
-      onClickFunction
-    );
+  // adds the inputs in the div form-group
+  if (inputLabel !== null) {
+    formGroupValue.appendChild(inputLabel);
+  }
+  formGroupValue.appendChild(inputValue);
+  // adds the elements in in the col
+  formGroupColValue.appendChild(formGroupValue);
+  formGroupButton.appendChild(deleteButton);
+  // adds the elements in the row
+  formGroupRow.appendChild(formGroupColValue);
+  formGroupRow.appendChild(formGroupButton);
+  // adds the row to the newInputs div
+  form.appendChild(formGroupRow);
 
-    // adds the inputs in the div form-group
-    if (inputLabel !== null) {
-      formGroupValue.appendChild(inputLabel);
-    }
-    formGroupValue.appendChild(inputValue);
-    // adds the elements in in the col
-    formGroupColValue.appendChild(formGroupValue);
-    formGroupButton.appendChild(deleteButton);
-    // adds the elements in the row
-    formGroupRow.appendChild(formGroupColValue);
-    formGroupRow.appendChild(formGroupButton);
-    // adds the row to the newInputs div
-    form.appendChild(formGroupRow);
-
-    key.value = "";
-    value.value = "";
+  key.value = "";
+  value.value = "";
 };
 
 export const deleteElementFunction = (event: any) => {
-   let elements = document.getElementsByClassName(event.target.value);
+  const elements = document.getElementsByClassName(event.target.value);
 
-    for (let i = 0; i < elements.length; i++) {
-      elements[i].remove();
-    }
+  for (let i = 0; i < elements.length; i++) {
+    elements[i].remove();
+  }
 };
 
 export const closeModal = (id: string) => {
-    let element = document.createElement("button");
-    let modal = document.getElementById("modalFooter" + id);
+  const element = document.createElement("button");
+  const modal = document.getElementById("modalFooter" + id);
 
-    element.setAttribute("data-bs-dismiss", "modal");
-    element.style.display = "none";
+  element.setAttribute("data-bs-dismiss", "modal");
+  element.style.display = "none";
 
-    modal.appendChild(element);
+  modal.appendChild(element);
 
-    element.click();
+  element.click();
 
-    modal.removeChild(element);
+  modal.removeChild(element);
 };
