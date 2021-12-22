@@ -5,7 +5,7 @@
 export const createElement = (
   tagName: any,
   className: any[],
-  attributes?: Record<any, any>,
+  attributes?: {},
   value?: string,
   innerText?: string,
   onclick?: any,
