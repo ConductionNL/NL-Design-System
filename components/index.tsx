@@ -18,3 +18,4 @@ export * from "./ActionMenu/src/actionMenu";
 export * from "./BottomNavigation/src/bottomNavigation";
 export * from "./TextArea/src/TextArea";
 export * from "./Spinner/src/spinner";
+export * from "./ElementCreation/src/elementCreation";
