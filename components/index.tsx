@@ -18,6 +18,7 @@ export * from "./ActionMenu/src/actionMenu";
 export * from "./BottomNavigation/src/bottomNavigation";
 export * from "./TextArea/src/TextArea";
 export * from "./Spinner/src/spinner";
+export * from "./ElementCreation/src/elementCreation";
 export * from "./ArrayInput/src/arrayInput";
 export * from "./MultiDimenionalArrayInput/src/multiDimensionalArrayInput";
 export * from "./ProgressBar/src/progressBar";
