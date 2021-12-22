@@ -44,9 +44,9 @@ export const addElement = (
   onClickFunction?: any,
   label?: true,
 ) => {
-  const key = document.getElementById(newKey);
-  const value = document.getElementById(newValue);
-  const form = document.getElementById(container);
+  const key = document.getElementById(newKey) as HTMLInputElement;
+  const value = document.getElementById(newValue) as HTMLInputElement;
+  const form = document.getElementById(container) as HTMLInputElement;
 
   if (key.value.length === 0 || value.value.length === 0) {
     return;
@@ -113,8 +113,8 @@ export const deleteElementFunction = (event: any) => {
 };
 
 export const closeModal = (id: string) => {
-  const element = document.createElement("button");
-  const modal = document.getElementById("modalFooter" + id);
+  const element = document.createElement("button") as HTMLInputElement;
+  const modal = document.getElementById("modalFooter" + id) as HTMLInputElement;
 
   element.setAttribute("data-bs-dismiss", "modal");
   element.style.display = "none";
