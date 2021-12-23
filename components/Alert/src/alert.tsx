@@ -12,7 +12,6 @@ interface AlertProps {
  * @returns JSX of the generated Alert.
  */
 export function Alert(props: AlertProps) {
-
   return (
     <>
       <div
@@ -26,5 +25,3 @@ export function Alert(props: AlertProps) {
     </>
   );
 }
-
-
