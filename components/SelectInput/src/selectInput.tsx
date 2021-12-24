@@ -29,7 +29,7 @@ export const SelectInputComponent = (props: SelectInputProps) => {
           required={props.required}
           className="utrecht-select utrecht-select--html-select"
         >
-          {!props.required || (props.required && !props.data) &&  <option></option>}
+          {!props.required || (props.required && !props.data && <option></option>)}
           {props.options.map((option) => (
             <option
               key={option.value}
