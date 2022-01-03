@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as _ from "lodash";
-import { deleteElementFunction, addElement } from "../../ElementCreation/src/elementCreation";
+// import { deleteElementFunction, addElement } from "../../ElementCreation/src/elementCreation";
 
 interface MultiDimensionalArrayInputProps {
   data: Record<string, string>;
@@ -15,7 +15,7 @@ interface MultiDimensionalArrayInputProps {
  * @returns JSX of the generated form.
  */
 export function MultiDimensionalArrayInput(props: MultiDimensionalArrayInputProps) {
-  const deleteElement = deleteElementFunction;
+  // const deleteElement = deleteElementFunction;
 
   return (
     <>
@@ -43,7 +43,7 @@ export function MultiDimensionalArrayInput(props: MultiDimensionalArrayInputProp
                 <div className="col-2 d-flex mt-auto mb-4">
                   <button
                     value={key}
-                    onClick={deleteElement}
+                    onClick={props.deleteFunction}
                     type="button"
                     className="utrecht-button utrecht-button-sm btn-sm btn-danger"
                   >
@@ -75,12 +75,12 @@ export function MultiDimensionalArrayInput(props: MultiDimensionalArrayInputProp
             type={"button"}
             className="utrecht-button utrecht-button-sm btn-sm btn-success mr-2"
             onClick={() => {
-              addElement(
+              props.addFunction(
                 `new${_.upperFirst(props.id)}`,
                 `new${_.upperFirst(props.id)}Key`,
                 `new${_.upperFirst(props.id)}Value`,
                 `${props.id}`,
-                deleteElement,
+                props.deleteFunction,
               );
             }}
           >
