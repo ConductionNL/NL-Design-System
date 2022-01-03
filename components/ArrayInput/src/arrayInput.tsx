@@ -6,6 +6,8 @@ interface ArrayInputProps {
   data: Array<Record<"value", any>>;
   id?: string;
   label?: string;
+  deleteFunction?: any;
+  addFunction?: any;
 }
 
 /**
@@ -35,14 +37,14 @@ export function ArrayInputComponent(props: ArrayInputProps) {
                 </div>
               </div>
               <div className="col-2 d-flex mt-auto mb-4">
-                {/*<button*/}
-                {/*  value={item.value}*/}
-                {/*  onClick={deleteElement}*/}
-                {/*  type="button"*/}
-                {/*  className="utrecht-button utrecht-button-sm btn-sm btn-danger"*/}
-                {/*>*/}
-                {/*  Delete*/}
-                {/*</button>*/}
+                <button
+                  value={item.value}
+                  onClick={props.deleteFunction}
+                  type="button"
+                  className="utrecht-button utrecht-button-sm btn-sm btn-danger"
+                >
+                  Delete
+                </button>
               </div>
             </div>
           ))}
@@ -58,22 +60,22 @@ export function ArrayInputComponent(props: ArrayInputProps) {
           </div>
         </div>
         <div className="col-2 my-auto">
-          {/*<button*/}
-          {/*  type={"button"}*/}
-          {/*  className="utrecht-button utrecht-button-sm btn-sm btn-success mr-2"*/}
-          {/*  onClick={() => {*/}
-          {/*    addElement(*/}
-          {/*      `new${_.upperFirst(props.id)}`,*/}
-          {/*      `new${_.upperFirst(props.id)}Value`,*/}
-          {/*      `new${_.upperFirst(props.id)}Value`,*/}
-          {/*      props.id,*/}
-          {/*      deleteElement,*/}
-          {/*      false,*/}
-          {/*    );*/}
-          {/*  }}*/}
-          {/*>*/}
-          {/*  Add*/}
-          {/*</button>*/}
+          <button
+            type={"button"}
+            className="utrecht-button utrecht-button-sm btn-sm btn-success mr-2"
+            onClick={() => {
+              props.addFunction(
+                `new${_.upperFirst(props.id)}`,
+                `new${_.upperFirst(props.id)}Value`,
+                `new${_.upperFirst(props.id)}Value`,
+                props.id,
+                props.deleteFunction,
+                false,
+              );
+            }}
+          >
+            Add
+          </button>
         </div>
       </div>
     </>
