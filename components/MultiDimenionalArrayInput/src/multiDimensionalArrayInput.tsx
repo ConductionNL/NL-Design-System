@@ -3,7 +3,7 @@ import * as _ from "lodash";
 import { deleteElementFunction, addElement } from "../../ElementCreation/src/elementCreation";
 
 interface MultiDimensionalArrayInputProps {
-  data: Record<string, string>;
+  data: Record<any, any>;
   id?: string;
   label?: string;
   deleteFunction?: any;
@@ -24,29 +24,29 @@ export function MultiDimensionalArrayInput(props: MultiDimensionalArrayInputProp
         {props.data !== undefined &&
           props.data !== null &&
           props.data.map(
-            (item) =>
+            (item: { value: any; }) =>
               item.value &&
-              Object.entries(item.value).map(([key, value]) => {
+              (item.value).map((item: { key: any, value: any}) => {
                 return (
                   <>
-                    <div key={value} className={`row ${key}`}>
+                    <div key={item.value} className={`row ${item.key}`}>
                       <div className="col-5">
                         <div className="form-group">
-                          <label htmlFor={value} className="utrecht-form-label">
-                            {key}
+                          <label htmlFor={item.value} className="utrecht-form-label">
+                            {item.key}
                           </label>
                           <input
                             type="text"
                             id="value"
-                            name={`${props.id}[${key}]`}
-                            defaultValue={value}
+                            name={`${props.id}[${item.key}]`}
+                            defaultValue={item.value}
                             className="utrecht-textbox utrecht-textbox--html-input mb-2"
                           />
                         </div>
                       </div>
                       <div className="col-2 d-flex mt-auto mb-4">
                         <button
-                          value={key}
+                          value={item.key}
                           onClick={deleteElement}
                           type="button"
                           className="utrecht-button utrecht-button-sm btn-sm btn-danger"
