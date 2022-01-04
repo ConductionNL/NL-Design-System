@@ -22,32 +22,32 @@ export function ArrayInputComponent(props: ArrayInputProps) {
       <span className="utrecht-form-label">{_.upperFirst(props.label ?? props.id)}</span>
       <div id={`new${_.upperFirst(props.id)}`}>
         {props.data !== undefined &&
-        props.data !== null &&
-        props.data.map((item) => (
-          <div key={item.value} className={`row ${item.value}`}>
-            <div className="col-5">
-              <div className="form-group">
-                <input
-                  type="text"
-                  id="value"
-                  name={`${props.id}[${item.value}]`}
-                  defaultValue={item.value}
-                  className="utrecht-textbox utrecht-textbox--html-input mb-2"
-                />
+          props.data !== null &&
+          props.data.map((item) => (
+            <div key={item.value} className={`row ${item.value}`}>
+              <div className="col-5">
+                <div className="form-group">
+                  <input
+                    type="text"
+                    id="value"
+                    name={`${props.id}[${item.value}]`}
+                    defaultValue={item.value}
+                    className="utrecht-textbox utrecht-textbox--html-input mb-2"
+                  />
+                </div>
+              </div>
+              <div className="col-2 d-flex mt-auto mb-4">
+                <button
+                  value={item.value}
+                  onClick={deleteElementFunction}
+                  type="button"
+                  className="utrecht-button utrecht-button-sm btn-sm btn-danger"
+                >
+                  Delete
+                </button>
               </div>
             </div>
-            <div className="col-2 d-flex mt-auto mb-4">
-              <button
-                value={item.value}
-                onClick={deleteElementFunction}
-                type="button"
-                className="utrecht-button utrecht-button-sm btn-sm btn-danger"
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        ))}
+          ))}
       </div>
       <br />
       <div className="separator-solid" />
