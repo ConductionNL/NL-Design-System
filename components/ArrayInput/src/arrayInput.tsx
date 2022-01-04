@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as _ from "lodash";
-//import { deleteElementFunction, addElement } from "../../elementCreation";
+import { deleteElementFunction, addElement } from "../../ElementCreation/src/elementCreation";
 
 interface ArrayInputProps {
   data: Array<Record<"value", any>>;
@@ -39,7 +39,7 @@ export function ArrayInputComponent(props: ArrayInputProps) {
               <div className="col-2 d-flex mt-auto mb-4">
                 <button
                   value={item.value}
-                  onClick={props.deleteFunction}
+                  onClick={deleteElementFunction}
                   type="button"
                   className="utrecht-button utrecht-button-sm btn-sm btn-danger"
                 >
@@ -64,12 +64,12 @@ export function ArrayInputComponent(props: ArrayInputProps) {
             type={"button"}
             className="utrecht-button utrecht-button-sm btn-sm btn-success mr-2"
             onClick={() => {
-              props.addFunction(
+              addElement(
                 `new${_.upperFirst(props.id)}`,
                 `new${_.upperFirst(props.id)}Value`,
                 `new${_.upperFirst(props.id)}Value`,
                 props.id,
-                props.deleteFunction,
+                deleteElementFunction,
                 false,
               );
             }}

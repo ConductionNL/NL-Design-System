@@ -1,9 +1,9 @@
 import * as React from "react";
 import * as _ from "lodash";
-// import { deleteElementFunction, addElement } from "../../ElementCreation/src/elementCreation";
+import { deleteElementFunction, addElement } from "../../ElementCreation/src/elementCreation";
 
 interface MultiDimensionalArrayInputProps {
-  data: Record<string, string>;
+  data: Record<any, any>;
   id?: string;
   label?: string;
   deleteFunction?: any;
@@ -15,7 +15,7 @@ interface MultiDimensionalArrayInputProps {
  * @returns JSX of the generated form.
  */
 export function MultiDimensionalArrayInput(props: MultiDimensionalArrayInputProps) {
-  // const deleteElement = deleteElementFunction;
+  const deleteElement = deleteElementFunction;
 
   return (
     <>
@@ -23,36 +23,42 @@ export function MultiDimensionalArrayInput(props: MultiDimensionalArrayInputProp
       <div id={`new${_.upperFirst(props.id)}`}>
         {props.data !== undefined &&
           props.data !== null &&
-          Object.entries(props.data).map(([key, value]) => {
-            return (
-              <div key={value} className={`row ${key}`}>
-                <div className="col-5">
-                  <div className="form-group">
-                    <label htmlFor={value} className="utrecht-form-label">
-                      {key}
-                    </label>
-                    <input
-                      type="text"
-                      id="value"
-                      name={`${props.id}[${key}]`}
-                      defaultValue={value}
-                      className="utrecht-textbox utrecht-textbox--html-input mb-2"
-                    />
-                  </div>
-                </div>
-                <div className="col-2 d-flex mt-auto mb-4">
-                  <button
-                    value={key}
-                    onClick={props.deleteFunction}
-                    type="button"
-                    className="utrecht-button utrecht-button-sm btn-sm btn-danger"
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
-            );
-          })}
+          props.data.map(
+            (item: { value: any }) =>
+              item.value &&
+              item.value.map((item: { key: any; value: any }) => {
+                return (
+                  <>
+                    <div key={item.value} className={`row ${item.key}`}>
+                      <div className="col-5">
+                        <div className="form-group">
+                          <label htmlFor={item.value} className="utrecht-form-label">
+                            {item.key}
+                          </label>
+                          <input
+                            type="text"
+                            id="value"
+                            name={`${props.id}[${item.key}]`}
+                            defaultValue={item.value}
+                            className="utrecht-textbox utrecht-textbox--html-input mb-2"
+                          />
+                        </div>
+                      </div>
+                      <div className="col-2 d-flex mt-auto mb-4">
+                        <button
+                          value={item.key}
+                          onClick={deleteElement}
+                          type="button"
+                          className="utrecht-button utrecht-button-sm btn-sm btn-danger"
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </div>
+                  </>
+                );
+              }),
+          )}
       </div>
       <br />
       <div className="separator-solid" />
@@ -75,12 +81,12 @@ export function MultiDimensionalArrayInput(props: MultiDimensionalArrayInputProp
             type={"button"}
             className="utrecht-button utrecht-button-sm btn-sm btn-success mr-2"
             onClick={() => {
-              props.addFunction(
+              addElement(
                 `new${_.upperFirst(props.id)}`,
                 `new${_.upperFirst(props.id)}Key`,
                 `new${_.upperFirst(props.id)}Value`,
                 `${props.id}`,
-                props.deleteFunction,
+                deleteElement,
               );
             }}
           >

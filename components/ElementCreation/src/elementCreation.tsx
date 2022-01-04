@@ -5,10 +5,10 @@
 export const createElement = (
   tagName: any,
   className: any[],
-  attributes?: any,
-  value?: string,
-  innerText?: string,
-  onclick?: any,
+  attributes = {},
+  value = "",
+  innerText = "",
+  onclick = null,
 ) => {
   // create element
   const element = document.createElement(tagName);
@@ -41,8 +41,8 @@ export const addElement = (
   newKey: any,
   newValue: any,
   inputName: any,
-  onClickFunction?: any,
-  label?: true,
+  onClickFunction: any,
+  label = true,
 ) => {
   const key = document.getElementById(newKey) as HTMLInputElement;
   const value = document.getElementById(newValue) as HTMLInputElement;
