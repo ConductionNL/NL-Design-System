@@ -20,9 +20,9 @@ export const createElement = (
   element.innerText = innerText;
 
   // add attributes to element
-  for (const [key, value] of Object(attributes)) {
+  Object.keys(attributes).forEach((key: any, value: any) => {
     element.setAttribute(key, value);
-  }
+  });
 
   // add classes to attribute
   for (let i = 0; i < className.length; i++) {
