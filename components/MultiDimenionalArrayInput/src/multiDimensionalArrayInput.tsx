@@ -24,9 +24,9 @@ export function MultiDimensionalArrayInput(props: MultiDimensionalArrayInputProp
         {props.data !== undefined &&
           props.data !== null &&
           props.data.map(
-            (item: { value: any; }) =>
+            (item: { value: any }) =>
               item.value &&
-              (item.value).map((item: { key: any, value: any}) => {
+              item.value.map((item: { key: any; value: any }) => {
                 return (
                   <>
                     <div key={item.value} className={`row ${item.key}`}>

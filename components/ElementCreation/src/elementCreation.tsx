@@ -2,7 +2,14 @@
  * This components handles element creations.
  * @returns JSX of the generated form.
  */
-export const createElement = (tagName: any, className: any[], attributes = {}, value = "", innerText = "", onclick = null) => {
+export const createElement = (
+  tagName: any,
+  className: any[],
+  attributes = {},
+  value = "",
+  innerText = "",
+  onclick = null,
+) => {
   // create element
   const element = document.createElement(tagName);
 
@@ -29,7 +36,14 @@ export const createElement = (tagName: any, className: any[], attributes = {}, v
   return element;
 };
 
-export const addElement = (container: any, newKey: any, newValue: any, inputName: any, onClickFunction: any, label = true) => {
+export const addElement = (
+  container: any,
+  newKey: any,
+  newValue: any,
+  inputName: any,
+  onClickFunction: any,
+  label = true,
+) => {
   const key = document.getElementById(newKey) as HTMLInputElement;
   const value = document.getElementById(newValue) as HTMLInputElement;
   const form = document.getElementById(container) as HTMLInputElement;
