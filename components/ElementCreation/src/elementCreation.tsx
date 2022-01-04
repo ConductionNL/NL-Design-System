@@ -20,7 +20,7 @@ export const createElement = (
   element.innerText = innerText;
 
   // add attributes to element
-  for (const [key, value] of Object.entries(attributes)) {
+  for (const [key, value] of Object(attributes)) {
     element.setAttribute(key, value);
   }
 
