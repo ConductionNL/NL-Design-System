@@ -3,15 +3,15 @@
  * @returns JSX of the generated form.
  */
 export const createElement = (
-  tagName: any,
-  className: any[],
-  attributes?: any,
-  value?: string,
-  innerText?: string,
-  onclick?: any,
+  tagName,
+  className = [],
+  attributes = {},
+  value = "",
+  innerText = "",
+  onclick = null,
 ) => {
   // create element
-  const element = document.createElement(tagName);
+  let element = document.createElement(tagName);
 
   // set element value
   element.value = value;
@@ -37,12 +37,12 @@ export const createElement = (
 };
 
 export const addElement = (
-  container: any,
-  newKey: any,
-  newValue: any,
-  inputName: any,
-  onClickFunction?: any,
-  label?: true,
+  container,
+  newKey,
+  newValue,
+  inputName,
+  onClickFunction = null,
+  label = true,
 ) => {
   const key = document.getElementById(newKey) as HTMLInputElement;
   const value = document.getElementById(newValue) as HTMLInputElement;
