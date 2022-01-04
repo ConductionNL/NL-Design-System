@@ -1,11 +1,13 @@
 import * as React from "react";
 import * as _ from "lodash";
-import { deleteElementFunction, addElement } from "../../ElementCreation/src/elementCreation";
+import {deleteElementFunction, addElement} from "../../ElementCreation/src/elementCreation";
 
 interface MultiDimensionalArrayInputProps {
   data: Record<string, string>;
   id?: string;
   label?: string;
+  deleteFunction?: any;
+  addFunction?: any;
 }
 
 /**
@@ -20,37 +22,40 @@ export function MultiDimensionalArrayInput(props: MultiDimensionalArrayInputProp
       <span className="utrecht-form-label">{_.upperFirst(props.label ?? props.id)}</span>
       <div id={`new${_.upperFirst(props.id)}`}>
         {props.data !== undefined &&
-          props.data !== null &&
-          Object.entries(props.data).map(([key, value]) => {
+        props.data !== null &&
+        props.data.map((item) => (
+          item.value && Object.entries(item.value).map(([key, value]) => {
             return (
-              <div key={value} className={`row ${key}`}>
-                <div className="col-5">
-                  <div className="form-group">
-                    <label htmlFor={value} className="utrecht-form-label">
-                      {key}
-                    </label>
-                    <input
-                      type="text"
-                      id="value"
-                      name={`${props.id}[${key}]`}
-                      defaultValue={value}
-                      className="utrecht-textbox utrecht-textbox--html-input mb-2"
-                    />
+              <>
+                <div key={value} className={`row ${key}`}>
+                  <div className="col-5">
+                    <div className="form-group">
+                      <label htmlFor={value} className="utrecht-form-label">
+                        {key}
+                      </label>
+                      <input
+                        type="text"
+                        id="value"
+                        name={`${props.id}[${key}]`}
+                        defaultValue={value}
+                        className="utrecht-textbox utrecht-textbox--html-input mb-2"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-2 d-flex mt-auto mb-4">
+                    <button
+                      value={key}
+                      onClick={deleteElement}
+                      type="button"
+                      className="utrecht-button utrecht-button-sm btn-sm btn-danger"
+                    >
+                      Delete
+                    </button>
                   </div>
                 </div>
-                <div className="col-2 d-flex mt-auto mb-4">
-                  <button
-                    value={key}
-                    onClick={deleteElement}
-                    type="button"
-                    className="utrecht-button utrecht-button-sm btn-sm btn-danger"
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
+              </>
             );
-          })}
+          })))}
       </div>
       <br />
       <div className="separator-solid" />
@@ -89,3 +94,4 @@ export function MultiDimensionalArrayInput(props: MultiDimensionalArrayInputProp
     </>
   );
 }
+
