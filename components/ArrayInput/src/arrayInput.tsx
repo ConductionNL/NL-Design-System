@@ -16,7 +16,7 @@ interface ArrayInputProps {
  * @returns JSX of the generated form.
  */
 export function ArrayInputComponent(props: ArrayInputProps) {
-  //const deleteElement = deleteElementFunction;
+  const deleteElement = deleteElementFunction;
   return (
     <>
       <span className="utrecht-form-label">{_.upperFirst(props.label ?? props.id)}</span>
@@ -39,7 +39,7 @@ export function ArrayInputComponent(props: ArrayInputProps) {
               <div className="col-2 d-flex mt-auto mb-4">
                 <button
                   value={item.value}
-                  onClick={deleteElementFunction}
+                  onClick={deleteElement}
                   type="button"
                   className="utrecht-button utrecht-button-sm btn-sm btn-danger"
                 >
@@ -69,7 +69,7 @@ export function ArrayInputComponent(props: ArrayInputProps) {
                 `new${_.upperFirst(props.id)}Value`,
                 `new${_.upperFirst(props.id)}Value`,
                 props.id,
-                deleteElementFunction,
+                deleteElement,
                 false,
               );
             }}
