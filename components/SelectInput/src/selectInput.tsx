@@ -35,7 +35,13 @@ export const SelectInputComponent = (props: SelectInputProps) => {
           {props.options.map((option) => (
             <option
               key={option.value}
-              selected={props.data !== null && props.value === null ? props.data === option.value : props.data !== null && props.value !== null ? props.data == `${option.name}` : false}
+              selected={
+                props.data !== null && props.value === null
+                  ? props.data === option.value
+                  : props.data !== null && props.value !== null
+                  ? props.data === `${option.name}`
+                  : false
+              }
               value={props.value ? `${props.value}${option.id}` : option.value}
             >
               {_.upperFirst(option.name)}
