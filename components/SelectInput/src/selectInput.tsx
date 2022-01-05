@@ -3,9 +3,11 @@ import * as React from "react";
 import "../../style/selectInput.css";
 
 interface SelectInputProps {
-  options: Array<Record<"value" | "name", any>>;
+  options: Array<Partial<Record<"value" | "name" | "id" | "selected", any>>>;
   name: string;
   nameOverride?: string;
+  value?: string;
+  object?: boolean;
   id: string;
   data?: string;
   required?: boolean;
@@ -29,12 +31,18 @@ export const SelectInputComponent = (props: SelectInputProps) => {
           required={props.required}
           className="utrecht-select utrecht-select--html-select"
         >
-          {!props.required && <option> </option>}
+          {!props.required && <option key={""}> </option>}
           {props.options.map((option) => (
             <option
               key={option.value}
-              selected={props.data === null ? false : props.data === option.value}
-              value={option.value}
+              selected={
+                props.data !== null && props.value === null
+                  ? props.data === option.value
+                  : props.data !== null && props.value !== null
+                  ? props.data === `${option.name}`
+                  : false
+              }
+              value={props.value ? `${props.value}${option.id}` : option.value}
             >
               {_.upperFirst(option.name)}
             </option>
@@ -47,4 +55,5 @@ export const SelectInputComponent = (props: SelectInputProps) => {
 
 SelectInputComponent.defaultProps = {
   required: false,
+  object: false,
 };
