@@ -12,9 +12,9 @@ interface AccordionProps {
 export function Accordion(props: AccordionProps) {
   return (
     <div className="accordion mt-4" id={`${props.id}Accordion`}>
-      {props.items.map((item) => (
+      {props.items.map((item, idx) => (
         <>
-          <div className="accordion-item">
+          <div key={idx} className="accordion-item">
             <h2 className="accordion-header" id={item.id}>
               <button
                 className="accordion-button collapsed"
