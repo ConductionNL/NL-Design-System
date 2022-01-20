@@ -1,5 +1,11 @@
 import * as _ from "lodash";
 import * as React from "react";
+import { InfoTooltip } from "../../InfoTooltip/InfoTooltip";
+
+interface IInfoTooltip {
+  content: JSX.Element;
+  placement?: "top" | "right" | "bottom" | "left";
+}
 
 interface GenericInputComponentProps {
   id: string;
@@ -14,6 +20,7 @@ interface GenericInputComponentProps {
   togglePassword?: boolean;
   eyeLeft?: string;
   eyeTop?: string;
+  infoTooltip?: IInfoTooltip;
 }
 
 /**
@@ -21,11 +28,25 @@ interface GenericInputComponentProps {
  *
  * @returns Jsx of the generated form.
  */
-export const GenericInputComponent = (props: GenericInputComponentProps) => {
-  const togglePassword = (e: any) => {
+export const GenericInputComponent: React.FC<GenericInputComponentProps> = ({
+  id,
+  data,
+  type,
+  name,
+  nameOverride,
+  required,
+  minLength,
+  maxLength,
+  disabled,
+  togglePassword,
+  eyeLeft,
+  eyeTop,
+  infoTooltip,
+}) => {
+  const handleTogglePassword = (e: any) => {
     e.target.classList.toggle("fa-eye");
     e.target.classList.toggle("fa-eye-slash");
-    const input = document.getElementById(props.id) as HTMLInputElement;
+    const input = document.getElementById(id) as HTMLInputElement;
     if (input.type === "password") {
       input.type = "text";
     } else {
@@ -34,38 +55,37 @@ export const GenericInputComponent = (props: GenericInputComponentProps) => {
   };
 
   return (
-    <>
-      <div className="input-group">
-        <label htmlFor={props.id} className="utrecht-form-label">
-          {_.upperFirst(props.nameOverride ?? props.name)}
-          {props.required && " *"}
-        </label>
-        <input
-          className="utrecht-textbox utrecht-textbox--html-input"
-          name={props.name}
-          id={props.id}
-          defaultValue={props.data === null ? undefined : props.data}
-          type={props.type}
-          required={props.required}
-          minLength={props.minLength === null ? undefined : props.minLength}
-          maxLength={props.maxLength === null ? undefined : props.maxLength}
-          disabled={props.disabled}
-        />
-        {props.togglePassword === true && (
-          <i
-            className="fas fa-eye-slash"
-            id="togglePassword"
-            style={{ cursor: "pointer", position: "relative", left: props.eyeLeft, top: props.eyeTop }}
-            onClick={togglePassword}
-          ></i>
-        )}
-      </div>
-    </>
+    <div className="input-group">
+      <label htmlFor={id} className="utrecht-form-label">
+        {_.upperFirst(nameOverride ?? name)}
+        {required && " *"}
+        {infoTooltip && <InfoTooltip content={infoTooltip.content} placement={infoTooltip.placement} />}
+      </label>
+      <input
+        className="utrecht-textbox utrecht-textbox--html-input"
+        name={name}
+        id={id}
+        defaultValue={data === null ? undefined : data}
+        type={type}
+        required={required}
+        minLength={minLength === null ? undefined : minLength}
+        maxLength={maxLength === null ? undefined : maxLength}
+        disabled={disabled}
+      />
+      {togglePassword === true && (
+        <i
+          className="fas fa-eye-slash"
+          id="togglePassword"
+          style={{ cursor: "pointer", position: "relative", left: eyeLeft, top: eyeTop }}
+          onClick={handleTogglePassword}
+        ></i>
+      )}
+    </div>
   );
 };
 
 GenericInputComponent.defaultProps = {
-  data: null,
+  data: undefined,
   disabled: false,
   required: false,
   minLength: null,

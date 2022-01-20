@@ -6,7 +6,9 @@
     "module": "commonjs",
     "declaration": true,
     "outDir": "./lib",
-    "strict": true
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
   },
     "include": ["components"],
     "exclude": ["node_modules", "**/__tests__/*"]

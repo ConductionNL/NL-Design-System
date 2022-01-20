@@ -3,8 +3,8 @@ import "../../style/card.css";
 
 interface CardProps {
   title?: string;
-  cardHeader?: any;
-  cardBody: any;
+  cardHeader?: () => JSX.Element;
+  cardBody: () => JSX.Element;
   divider?: boolean;
 }
 
@@ -12,47 +12,40 @@ interface CardProps {
  * This components renders a bootstrap card.
  * @returns JSX of the generated Card.
  */
-export function Card(props: CardProps) {
+export const Card: React.FC<CardProps> = ({ title, cardHeader, cardBody, divider }) => {
   return (
     <div className="utrecht-card card">
-      {props.divider !== false ? (
+      {divider ? (
         <>
           <div className="utrecht-card-header card-header">
             <div className="utrecht-card-head-row card-head-row row">
-              {props.title !== null && props.cardHeader !== null && (
+              {title !== null && cardHeader !== null && (
                 <>
                   <div className="col-6">
                     <h4 className="utrecht-heading-4 utrecht-heading-4--distanced utrecht-card-title text-start">
-                      {props.title}
+                      {title}
                     </h4>
                   </div>
-                  <div className="col-6 text-right">{props.cardHeader !== null && props.cardHeader()}</div>
+                  <div className="col-6 text-right">{cardHeader && cardHeader()}</div>
                 </>
               )}
-              {props.title !== null && props.cardHeader === null && (
+              {title && !cardHeader && (
                 <div className="col-12">
                   <h4 className="utrecht-heading-4 utrecht-heading-4--distanced utrecht-card-title text-start">
-                    {props.title}
+                    {title}
                   </h4>
                 </div>
               )}
             </div>
           </div>
-          <div className="utrecht-card-body card-body">{props.cardBody !== null && props.cardBody()}</div>
+          <div className="utrecht-card-body card-body">{cardBody()}</div>
         </>
       ) : (
         <div className="utrecht-card-body card-body">
-          <h4 className="utrecht-heading-4 utrecht-heading-4--distanced utrecht-card-title text-start">
-            {props.title}
-          </h4>
-          {props.cardBody !== null && props.cardBody()}
+          <h4 className="utrecht-heading-4 utrecht-heading-4--distanced utrecht-card-title text-start">{title}</h4>
+          {cardBody()}
         </div>
       )}
     </div>
   );
-}
-
-Card.defaultProps = {
-  cardHeader: null,
-  cardBody: null,
 };
