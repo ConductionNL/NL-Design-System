@@ -15,8 +15,8 @@ export enum Size {
 interface ModalProps {
   title: string;
   id: any;
-  body: any;
-  footer?: any;
+  body: () => JSX.Element;
+  footer?: () => JSX.Element;
   centered?: VerticallyCentered;
   size?: Size;
 }
@@ -26,35 +26,29 @@ interface ModalProps {
  *
  * @returns JSX of the generated Modal.
  */
-export function Modal(props: ModalProps) {
+export const Modal: React.FC<ModalProps> = ({ title, id, body, footer, centered, size }) => {
   return (
     <div
       className="modal fade"
       tabIndex={-1}
-      id={`${props.id.replaceAll("-", "")}`}
-      aria-labelledby={`${props.id.replaceAll("-", "")}Label`}
+      id={`${id.replaceAll("-", "")}`}
+      aria-labelledby={`${id.replaceAll("-", "")}Label`}
       aria-hidden="true"
     >
-      <div className={`modal-dialog ${props.centered} ${props.size !== null && props.size}`}>
+      <div className={`modal-dialog ${centered} ${size && size}`}>
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title">{props.title}</h5>
+            <h5 className="modal-title">{title}</h5>
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
           </div>
-          <div className="modal-body">{props.body !== null && props.body()}</div>
-          {props.footer !== null && (
-            <div className="modal-footer" id={`modalFooter${props.id.replaceAll("-", "")}`}>
-              {props.footer()}
+          <div className="modal-body">{body && body()}</div>
+          {footer && (
+            <div className="modal-footer" id={`modalFooter${id.replaceAll("-", "")}`}>
+              {footer()}
             </div>
           )}
         </div>
       </div>
     </div>
   );
-}
-
-Modal.defaultProps = {
-  footer: null,
-  size: null,
-  centered: null,
 };
