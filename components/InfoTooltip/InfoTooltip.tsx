@@ -1,6 +1,7 @@
 import * as React from "react";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Info } from "@mui/icons-material";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInfo } from "@fortawesome/free-solid-svg-icons";
 
 interface TooltipProps {
   content: JSX.Element;
@@ -17,7 +18,7 @@ export const InfoTooltip: React.FC<TooltipProps> = ({ content, placement }) => {
       overlay={<Tooltip id={`tooltip-${_placement}`}>{content}</Tooltip>}
     >
       <span style={{ color: "#1269DB" }}>
-        <Info color="inherit" />
+        <FontAwesomeIcon icon={faInfo} />
       </span>
     </OverlayTrigger>
   );
