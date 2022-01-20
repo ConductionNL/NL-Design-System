@@ -19,7 +19,7 @@ export const Table: React.FC<TableProps> = ({ columns, rows }) => {
       <tbody>
         {rows.map((row, index) => (
           <tr key={index}>
-            {columns.map((column, idx) => (
+            {columns.map((column, idx) =>
               Object.keys(row).includes(column.field) && !column.hidden ? (
                 column.renderCell ? (
                   <td className="align-middle" key={idx}>
@@ -30,10 +30,8 @@ export const Table: React.FC<TableProps> = ({ columns, rows }) => {
                     {column.valueFormatter ? column.valueFormatter(row[column.field]) : row[column.field]}
                   </td>
                 )
-              ) : (
-                null
-              )
-            ))}
+              ) : null,
+            )}
           </tr>
         ))}
       </tbody>
