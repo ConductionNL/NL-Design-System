@@ -21,11 +21,24 @@ interface GenericInputComponentProps {
  *
  * @returns Jsx of the generated form.
  */
-export const GenericInputComponent = (props: GenericInputComponentProps) => {
-  const togglePassword = (e: any) => {
+export const GenericInputComponent: React.FC<GenericInputComponentProps> = ({
+  id,
+  data,
+  type,
+  name,
+  nameOverride,
+  required,
+  minLength,
+  maxLength,
+  disabled,
+  togglePassword,
+  eyeLeft,
+  eyeTop,
+}) => {
+  const handleTogglePassword = (e: any) => {
     e.target.classList.toggle("fa-eye");
     e.target.classList.toggle("fa-eye-slash");
-    const input = document.getElementById(props.id) as HTMLInputElement;
+    const input = document.getElementById(id) as HTMLInputElement;
     if (input.type === "password") {
       input.type = "text";
     } else {
@@ -36,27 +49,27 @@ export const GenericInputComponent = (props: GenericInputComponentProps) => {
   return (
     <>
       <div className="input-group">
-        <label htmlFor={props.id} className="utrecht-form-label">
-          {_.upperFirst(props.nameOverride ?? props.name)}
-          {props.required && " *"}
+        <label htmlFor={id} className="utrecht-form-label">
+          {_.upperFirst(nameOverride ?? name)}
+          {required && " *"}
         </label>
         <input
           className="utrecht-textbox utrecht-textbox--html-input"
-          name={props.name}
-          id={props.id}
-          defaultValue={props.data === null ? undefined : props.data}
-          type={props.type}
-          required={props.required}
-          minLength={props.minLength === null ? undefined : props.minLength}
-          maxLength={props.maxLength === null ? undefined : props.maxLength}
-          disabled={props.disabled}
+          name={name}
+          id={id}
+          defaultValue={data === null ? undefined : data}
+          type={type}
+          required={required}
+          minLength={minLength === null ? undefined : minLength}
+          maxLength={maxLength === null ? undefined : maxLength}
+          disabled={disabled}
         />
-        {props.togglePassword === true && (
+        {togglePassword === true && (
           <i
             className="fas fa-eye-slash"
             id="togglePassword"
-            style={{ cursor: "pointer", position: "relative", left: props.eyeLeft, top: props.eyeTop }}
-            onClick={togglePassword}
+            style={{ cursor: "pointer", position: "relative", left: eyeLeft, top: eyeTop }}
+            onClick={handleTogglePassword}
           ></i>
         )}
       </div>
@@ -65,7 +78,7 @@ export const GenericInputComponent = (props: GenericInputComponentProps) => {
 };
 
 GenericInputComponent.defaultProps = {
-  data: null,
+  data: undefined,
   disabled: false,
   required: false,
   minLength: null,
