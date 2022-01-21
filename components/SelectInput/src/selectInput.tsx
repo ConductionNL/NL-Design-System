@@ -7,6 +7,7 @@ interface SelectInputProps {
   name: string;
   nameOverride?: string;
   value?: string;
+  data?: string;
   id: string;
   required?: boolean;
 }
@@ -21,6 +22,7 @@ export const SelectInputComponent: React.FC<SelectInputProps> = ({
   nameOverride,
   value,
   id,
+  data,
   required,
 }) => {
   return (
@@ -29,7 +31,7 @@ export const SelectInputComponent: React.FC<SelectInputProps> = ({
         {_.upperFirst(nameOverride ?? name)}
         {required && " *"}
       </label>
-      <select {...{ name, id, value, required }} className="utrecht-select utrecht-select--html-select">
+      <select {...{ name, id, required }} value={value ?? data} className="utrecht-select utrecht-select--html-select">
         {!required && <option key={""}> </option>}
         {options.map((option) => (
           <option key={option.value} value={option.value}>
