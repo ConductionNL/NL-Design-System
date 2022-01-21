@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../../style/table.css";
+import "./temp.css";
 
 interface TableProps {
   columns: Array<Partial<Record<"field" | "headerName" | "renderCell" | "hidden" | "valueFormatter", any>>>;
@@ -30,7 +30,9 @@ export const Table: React.FC<TableProps> = ({ columns, rows }) => {
                     {column.valueFormatter ? column.valueFormatter(row[column.field]) : row[column.field]}
                   </td>
                 )
-              ) : null,
+              ) : (
+                <td></td>
+              ),
             )}
           </tr>
         ))}
