@@ -31,7 +31,7 @@ export const Table: React.FC<TableProps> = ({ columns, rows }) => {
                   </td>
                 )
               ) : (
-                <td></td>
+                <td key={idx}></td>
               ),
             )}
           </tr>
