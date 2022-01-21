@@ -15,11 +15,11 @@ interface CardProps {
 export const Card: React.FC<CardProps> = ({ title, cardHeader, cardBody, divider }) => {
   return (
     <div className="utrecht-card card">
-      {divider ? (
+      {divider !== false ? (
         <>
           <div className="utrecht-card-header card-header">
             <div className="utrecht-card-head-row card-head-row row">
-              {title !== null && cardHeader !== null && (
+              {title && cardHeader && (
                 <>
                   <div className="col-6">
                     <h4 className="utrecht-heading-4 utrecht-heading-4--distanced utrecht-card-title text-start">
@@ -29,7 +29,7 @@ export const Card: React.FC<CardProps> = ({ title, cardHeader, cardBody, divider
                   <div className="col-6 text-right">{cardHeader && cardHeader()}</div>
                 </>
               )}
-              {title && !cardHeader && (
+              {title && cardHeader === null && (
                 <div className="col-12">
                   <h4 className="utrecht-heading-4 utrecht-heading-4--distanced utrecht-card-title text-start">
                     {title}
@@ -38,12 +38,12 @@ export const Card: React.FC<CardProps> = ({ title, cardHeader, cardBody, divider
               )}
             </div>
           </div>
-          <div className="utrecht-card-body card-body">{cardBody()}</div>
+          <div className="utrecht-card-body card-body">{cardBody && cardBody()}</div>
         </>
       ) : (
         <div className="utrecht-card-body card-body">
           <h4 className="utrecht-heading-4 utrecht-heading-4--distanced utrecht-card-title text-start">{title}</h4>
-          {cardBody()}
+          {cardBody && cardBody()}
         </div>
       )}
     </div>
