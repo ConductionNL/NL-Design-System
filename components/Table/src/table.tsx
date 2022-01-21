@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./temp.css";
+import "../../style/table.css";
 
 interface TableProps {
   columns: Array<Partial<Record<"field" | "headerName" | "renderCell" | "hidden" | "valueFormatter", any>>>;
