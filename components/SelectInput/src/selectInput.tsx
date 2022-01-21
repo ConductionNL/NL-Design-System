@@ -31,7 +31,11 @@ export const SelectInputComponent: React.FC<SelectInputProps> = ({
         {_.upperFirst(nameOverride ?? name)}
         {required && " *"}
       </label>
-      <select {...{ name, id, required }} value={value ?? data} className="utrecht-select utrecht-select--html-select">
+      <select
+        {...{ name, id, required }}
+        defaultValue={value ?? data}
+        className="utrecht-select utrecht-select--html-select"
+      >
         {!required && <option key={""}> </option>}
         {options.map((option) => (
           <option key={option.value} value={option.value}>
