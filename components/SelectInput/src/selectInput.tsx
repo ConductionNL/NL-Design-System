@@ -10,6 +10,7 @@ interface SelectInputProps {
   data?: string;
   id: string;
   required?: boolean;
+  onChange?: any;
 }
 
 /**
@@ -24,6 +25,7 @@ export const SelectInputComponent: React.FC<SelectInputProps> = ({
   id,
   data,
   required,
+  onChange,
 }) => {
   return (
     <div className="input-group">
@@ -35,10 +37,11 @@ export const SelectInputComponent: React.FC<SelectInputProps> = ({
         {...{ name, id, required }}
         defaultValue={value ?? data}
         className="utrecht-select utrecht-select--html-select"
+        onChange={onChange}
       >
-        {!required && <option key={""}> </option>}
-        {options.map((option) => (
-          <option key={option.value} value={option.value}>
+        {!required && <option key={"empty"} />}
+        {options.map((option, idx) => (
+          <option key={idx} value={option.value}>
             {_.upperFirst(option.name)}
           </option>
         ))}
