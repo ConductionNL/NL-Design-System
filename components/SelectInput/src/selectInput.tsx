@@ -41,7 +41,7 @@ export const SelectInputComponent: React.FC<SelectInputProps> = ({
       >
         {!required && <option key={"empty"} />}
         {options.map((option, idx) => (
-          <option key={idx} value={option.value}>
+          <option key={idx} value={value ? `${option.value}${option.id}` : option.value}>
             {_.upperFirst(option.name)}
           </option>
         ))}
