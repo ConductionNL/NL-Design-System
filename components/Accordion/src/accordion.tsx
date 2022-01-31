@@ -1,7 +1,14 @@
 import * as React from "react";
 
+interface AccordionItem {
+  id: string,
+  title: string,
+  render: () => JSX.Element,
+  backgroundColor?: string,
+}
+
 interface AccordionProps {
-  items: Array<Record<"id" | "title" | "render", any>>;
+  items: AccordionItem[];
   id: string;
 }
 
@@ -9,7 +16,7 @@ interface AccordionProps {
  * This components renders an bootstrap accordion.
  * @returns JSX of the generated accordion.
  */
-export const Accordion: React.FC<AccordionProps> = ({ items, id }) => {
+export const Accordion: React.FC<AccordionProps> = ({ items, id}) => {
   return (
     <div className="accordion mt-4" id={`${id}Accordion`}>
       {items.map((item, idx) => (
@@ -32,7 +39,7 @@ export const Accordion: React.FC<AccordionProps> = ({ items, id }) => {
             aria-labelledby={item.id}
             data-bs-parent={`#${item.id}Accordion`}
           >
-            <div className="accordion-body">{item.render()}</div>
+            <div className="accordion-body" style={{backgroundColor: item.backgroundColor}} >{item.render()}</div>
           </div>
         </div>
       ))}
