@@ -6,9 +6,10 @@ import { faInfo } from "@fortawesome/free-solid-svg-icons";
 interface TooltipProps {
   content: JSX.Element;
   placement?: "top" | "right" | "bottom" | "left";
+  layoutClassName?: string;
 }
 
-export const InfoTooltip: React.FC<TooltipProps> = ({ content, placement }) => {
+export const InfoTooltip: React.FC<TooltipProps> = ({ content, placement, layoutClassName }) => {
   const _placement = placement ?? "top";
 
   return (
@@ -17,7 +18,7 @@ export const InfoTooltip: React.FC<TooltipProps> = ({ content, placement }) => {
       placement={_placement}
       overlay={<Tooltip id={`tooltip-${_placement}`}>{content}</Tooltip>}
     >
-      <span style={{ color: "#1269DB" }}>
+      <span className={layoutClassName}>
         <FontAwesomeIcon icon={faInfo} />
       </span>
     </OverlayTrigger>
