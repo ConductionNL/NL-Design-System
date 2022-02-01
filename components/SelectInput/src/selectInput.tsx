@@ -27,7 +27,7 @@ export const SelectInputComponent: React.FC<SelectInputProps> = ({
   data,
   required,
   onChange,
-  disabled
+  disabled,
 }) => {
   return (
     <div className="input-group">
