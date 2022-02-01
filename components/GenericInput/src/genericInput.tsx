@@ -10,7 +10,7 @@ interface IInfoTooltip {
 interface GenericInputComponentProps {
   id: string;
   data?: string | number;
-  type: "text" | "number" | "password" | "email";
+  type: "text" | "number" | "password" | "email" | "url";
   name: string;
   nameOverride?: string;
   required?: boolean;
