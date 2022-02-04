@@ -8,12 +8,13 @@ The main benefits of working with a standardised, component library is being abl
 
 NL-Design-System is available as an NPM package.
 
-``// with npm
-\$ npm install @conductionnl/nl-design-system
+```
+// with npm
+$ npm install @conductionnl/nl-design-system
 
 // with yarn
-\$ yarn add @conductionnl/nl-design-system
-``
+$ yarn add @conductionnl/nl-design-system
+```
 
 # Usage
 
