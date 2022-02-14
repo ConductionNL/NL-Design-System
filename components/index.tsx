@@ -23,3 +23,4 @@ export * from "./ArrayInput/src/arrayInput";
 export * from "./MultiDimenionalArrayInput/src/multiDimensionalArrayInput";
 export * from "./ProgressBar/src/progressBar";
 export * from "./InfoTooltip/InfoTooltip";
+export * from "./TextareaGroup/src/textareaGroup";

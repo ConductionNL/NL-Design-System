@@ -1,7 +1,14 @@
 import * as React from "react";
 
+interface AccordionItem {
+  id: string;
+  title: string;
+  render: () => JSX.Element;
+  backgroundColor?: string;
+}
+
 interface AccordionProps {
-  items: Array<Record<"id" | "title" | "render", any>>;
+  items: AccordionItem[];
   id: string;
 }
 
@@ -32,7 +39,9 @@ export const Accordion: React.FC<AccordionProps> = ({ items, id }) => {
             aria-labelledby={item.id}
             data-bs-parent={`#${item.id}Accordion`}
           >
-            <div className="accordion-body">{item.render()}</div>
+            <div className="accordion-body" style={{ backgroundColor: item.backgroundColor }}>
+              {item.render()}
+            </div>
           </div>
         </div>
       ))}
