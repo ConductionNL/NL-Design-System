@@ -9,15 +9,15 @@ interface SpinnerProps {
  *
  * @returns JSX of the generated Switch.
  */
-export function Spinner(props: SpinnerProps) {
+export const Spinner: React.FC<SpinnerProps> = ({ paddingX }) => {
   return (
-    <div className={"text-center " + props.paddingX}>
+    <div className={"text-center " + paddingX}>
       <div className="spinner-border text-primary" style={{ width: "3rem", height: "3rem" }} role="status">
         <span className="sr-only">Loading...</span>
       </div>
     </div>
   );
-}
+};
 
 Spinner.defaultProps = {
   paddingX: "px-5",

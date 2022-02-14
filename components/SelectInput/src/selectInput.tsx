@@ -7,53 +7,51 @@ interface SelectInputProps {
   name: string;
   nameOverride?: string;
   value?: string;
-  object?: boolean;
-  id: string;
   data?: string;
+  id: string;
   required?: boolean;
+  onChange?: any;
+  disabled?: boolean;
 }
 
 /**
  * This component generates a select input.
  * @returns Jsx of the generated form.
  */
-export const SelectInputComponent = (props: SelectInputProps) => {
+export const SelectInputComponent: React.FC<SelectInputProps> = ({
+  options,
+  name,
+  nameOverride,
+  value,
+  id,
+  data,
+  required,
+  onChange,
+  disabled,
+}) => {
   return (
-    <>
-      <div className="input-group">
-        <label className="utrecht-form-label" htmlFor={props.id}>
-          {_.upperFirst(props.nameOverride ?? props.name)}
-          {props.required && " *"}
-        </label>
-        <select
-          name={props.name}
-          id={props.id}
-          required={props.required}
-          className="utrecht-select utrecht-select--html-select"
-        >
-          {!props.required && <option key={""}> </option>}
-          {props.options.map((option) => (
-            <option
-              key={option.value}
-              selected={
-                props.data !== null && props.value === null
-                  ? props.data === option.value
-                  : props.data !== null && props.value !== null
-                  ? props.data === `${option.name}`
-                  : false
-              }
-              value={props.value ? `${props.value}${option.id}` : option.value}
-            >
-              {_.upperFirst(option.name)}
-            </option>
-          ))}
-        </select>
-      </div>
-    </>
+    <div className="input-group">
+      <label className="utrecht-form-label" htmlFor={id}>
+        {_.upperFirst(nameOverride ?? name)}
+        {required && " *"}
+      </label>
+      <select
+        {...{ name, id, required, disabled }}
+        defaultValue={value ?? data}
+        className="utrecht-select utrecht-select--html-select"
+        onChange={onChange}
+      >
+        {!required && <option key={"empty"} />}
+        {options.map((option, idx) => (
+          <option key={idx} value={value ? `${value}${option.id}` : option.value}>
+            {_.upperFirst(option.name)}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 };
 
 SelectInputComponent.defaultProps = {
   required: false,
-  object: false,
 };

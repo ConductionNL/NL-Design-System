@@ -19,8 +19,8 @@ interface ActionMenuProps {
  *
  * @returns JSX of the generated ActionMenu.
  */
-export function ActionMenu(props: ActionMenuProps) {
-  const navigationItems = props.items.map((item) => (
+export const ActionMenu: React.FC<ActionMenuProps> = ({ items, breakpoint, pageDescription }) => {
+  const navigationItems = items.map((item) => (
     <a href={item.link} key={item.name}>
       <li className="utrecht-sidenav__item" key={item.name}>
         <span className="sidenav-span">
@@ -32,15 +32,15 @@ export function ActionMenu(props: ActionMenuProps) {
   ));
 
   return (
-    <nav className={`utrecht-sidenav ${props.breakpoint}`}>
+    <nav className={`utrecht-sidenav ${breakpoint}`}>
       <ul className="utrecht-sidenav__list">{navigationItems}</ul>
-      {props.pageDescription !== null && (
+      {pageDescription !== null && (
         <>
           <br />
           <br />
-          <p className="utrecht-paragraph">{props.pageDescription}</p>
+          <p className="utrecht-paragraph">{pageDescription}</p>
         </>
       )}
     </nav>
   );
-}
+};
