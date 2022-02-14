@@ -1,5 +1,6 @@
 import * as _ from "lodash";
 import * as React from "react";
+import "../../style/genericInput.css";
 import { InfoTooltip } from "../../InfoTooltip/InfoTooltip";
 
 interface IInfoTooltip {
@@ -59,7 +60,13 @@ export const GenericInputComponent: React.FC<GenericInputComponentProps> = ({
       <label htmlFor={id} className="utrecht-form-label">
         {_.upperFirst(nameOverride ?? name)}
         {required && " *"}
-        {infoTooltip && <InfoTooltip content={infoTooltip.content} placement={infoTooltip.placement} />}
+        {infoTooltip && (
+          <InfoTooltip
+            content={infoTooltip.content}
+            placement={infoTooltip.placement}
+            layoutClassName="genericInput-tooltip"
+          />
+        )}
       </label>
       <input
         className="utrecht-textbox utrecht-textbox--html-input"
