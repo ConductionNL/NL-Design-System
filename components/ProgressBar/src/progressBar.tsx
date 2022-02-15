@@ -14,7 +14,7 @@ interface ProgressBarProps {
  * @returns TSX of the progress bar.
  */
 export function ProgressBarComponent(props: ProgressBarProps) {
-  // Element build in JS because typescript wont regonize ariaValuenow
+  // Element build in JS because typescript wont recognize ariaValuenow
   const progressDiv = document.createElement("div");
   progressDiv.classList.add("progress-bar", "bg-" + props.bgColor);
   progressDiv.style.width = props.progress + "%";
