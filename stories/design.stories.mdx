@@ -116,7 +116,16 @@ import StackAlt from "./assets/stackalt.svg";
 
 # Design Choices
 
-The Conduction NL Design System expands the open-source ecosystem as a whole. The components built are based
-on the [Utrecht Design System](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/utrecht-readme--page).
-We chose to build further alongside the Municipality of Utrecht, because they are the most developed and agree with many design choices.
-We believe this is the fastest way to build an independent component library to develop the NL Design System.
+The Conduction NL Design System expands the open-source ecosystem as a whole. All our Design Decisions (and history of)
+will be documented on this page.
+
+We believe the following bulletpoints are the fastest way to build an independent component library to develop the NL Design System.
+
+- We chose to base our components on the [Utrecht Design System](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/utrecht-readme--page).
+  We chose to build further alongside the Municipality of Utrecht, because they are the most developed and agree with many design choices.
+  The components built by Utrecht are also very well documented.
+
+- We chose not to include some municipalities' components, because of the dependency of libraries outside of the NL Design ecosystem and believe
+  the ecosystem should develop independently. Relying on external frameworks and libraries are counter-productive.
+
+- Any and all required CSS overwrites (rules where no Utrecht- or Conduction- design tokens are available) should be done on implementation level.
