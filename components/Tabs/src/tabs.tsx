@@ -1,7 +1,7 @@
 import * as React from "react";
 
 interface TabsProps {
-  items: Array<Partial<Record<"name" | "active" | "id", any>>>;
+  items: Array<Partial<Record<"name" | "active" | "id" | "onClick", any>>>;
 }
 
 /**
@@ -10,7 +10,7 @@ interface TabsProps {
  */
 export const Tabs: React.FC<TabsProps> = ({ items }) => {
   const navItems = items.map((item) => (
-    <li className="nav-item" role="presentation" key={item.name}>
+    <li className="nav-item" role="presentation" key={item.name} onClick={item?.onClick}>
       <a
         className={item?.active ? "nav-link active" : "nav-link"}
         id={item.id + "-tab"}
