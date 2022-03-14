@@ -1,12 +1,14 @@
 import * as React from "react";
 
 interface TabsProps {
-  tabs: {
-    name: string,
-    active: boolean,
-    id: string,
-    onClick?: () => void
-  }[]
+  tabs: ITabItems[]
+}
+
+interface ITabItems {
+  name: string,
+  active?: boolean,
+  id: string,
+  onClick?: () => void
 }
 
 /**
