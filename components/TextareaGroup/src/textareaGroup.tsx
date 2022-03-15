@@ -11,7 +11,7 @@ interface TextareaGroupProps {
   id: string;
   name: string;
   defaultValue?: string;
-  label?: string;
+  label: string | JSX.Element;
   required?: boolean;
   disabled?: boolean;
   infoTooltip?: IInfoTooltip;
@@ -34,7 +34,7 @@ export const TextareaGroup: React.FC<TextareaGroupProps> = ({
   return (
     <div className="form-group">
       <label htmlFor={id} className="utrecht-form-label">
-        {_.upperFirst(label ?? name)}
+        {label}
         {required && " *"}
         {infoTooltip && <InfoTooltip content={infoTooltip.content} placement={infoTooltip.placement} />}
       </label>
