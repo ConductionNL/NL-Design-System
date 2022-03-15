@@ -1,24 +1,10 @@
 import * as React from "react";
 
-export enum VerticallyCentered {
-  centered = "modal-dialog-centered",
-  scrollable = "modal-dialog-centered modal-dialog-scrollable",
-}
-
-// default value is 500px
-export enum Size {
-  small = "modal-sm",
-  lage = "modal-lg",
-  extraLage = "modal-xl",
-}
-
 interface ModalProps {
   title: string;
   id: any;
   body: () => JSX.Element;
   footer?: () => JSX.Element;
-  centered?: VerticallyCentered;
-  size?: Size;
 }
 
 /**
@@ -26,7 +12,7 @@ interface ModalProps {
  *
  * @returns JSX of the generated Modal.
  */
-export const Modal: React.FC<ModalProps> = ({ title, id, body, footer, centered, size }) => {
+export const Modal: React.FC<ModalProps> = ({ title, id, body, footer}) => {
   return (
     <div
       className="modal fade"
@@ -35,7 +21,7 @@ export const Modal: React.FC<ModalProps> = ({ title, id, body, footer, centered,
       aria-labelledby={`${id.replaceAll("-", "")}Label`}
       aria-hidden="true"
     >
-      <div className={`modal-dialog ${centered} ${size && size}`}>
+      <div className={`modal-dialog modal-lg`}>
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title">{title}</h5>
