@@ -1,6 +1,12 @@
 import * as _ from "lodash";
 import * as React from "react";
 import "../../style/selectInput.css";
+import { InfoTooltip } from "../../InfoTooltip/InfoTooltip";
+
+interface IInfoTooltip {
+  content: JSX.Element;
+  placement?: "top" | "right" | "bottom" | "left";
+}
 
 interface SelectInputProps {
   options: Array<Partial<Record<"value" | "name" | "id" | "selected", any>>>;
@@ -12,6 +18,7 @@ interface SelectInputProps {
   required?: boolean;
   onChange?: any;
   disabled?: boolean;
+  infoTooltip?: IInfoTooltip;
 }
 
 /**
@@ -28,12 +35,20 @@ export const SelectInputComponent: React.FC<SelectInputProps> = ({
   required,
   onChange,
   disabled,
+  infoTooltip,
 }) => {
   return (
     <div className="input-group">
       <label className="utrecht-form-label" htmlFor={id}>
         {_.upperFirst(nameOverride ?? name)}
         {required && " *"}
+        {infoTooltip && (
+          <InfoTooltip
+            content={infoTooltip.content}
+            placement={infoTooltip.placement}
+            layoutClassName="genericInput-tooltip"
+          />
+        )}
       </label>
       <select
         {...{ name, id, required, disabled }}
