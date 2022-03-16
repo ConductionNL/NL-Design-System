@@ -1,7 +1,7 @@
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   previewTabs: {
-    'storybook/docs/panel': { index: -1 },
+    "storybook/docs/panel": { index: -1 },
   },
   controls: {
     matchers: {
@@ -12,8 +12,7 @@ export const parameters = {
   docs: {
     // Show code by default.
     source: {
-      state: 'open',
-  }
-}
-
-}
+      state: "open",
+    },
+  },
+};

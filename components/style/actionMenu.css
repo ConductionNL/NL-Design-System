@@ -1,8 +1,20 @@
 /*Small devices (landscape phones, 1000px and down)*/
-@media (max-width: 1000px) { .small{ display: none; } }
+@media (max-width: 1000px) {
+  .small {
+    display: none;
+  }
+}
 
 /*Medium devices (tablets, 1192px and down)*/
-@media (max-width: 1192px) { .medium{ display: none; } }
+@media (max-width: 1192px) {
+  .medium {
+    display: none;
+  }
+}
 
 /*Large devices (desktops, 1416px and down)*/
-@media (max-width: 1416px) { .large{ display: none; } }
+@media (max-width: 1416px) {
+  .large {
+    display: none;
+  }
+}

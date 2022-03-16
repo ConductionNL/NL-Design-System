@@ -1,28 +1,28 @@
 .utrecht-html table thead th {
-    border-bottom-width: 2px;
-    font-weight: 600;
-    border-bottom: 0 !important;
-    font-size: 14px;
-    border-top-width: 0px;
-    border-bottom: 1px solid;
-    border-color: #ebedf2 !important;
-    padding: 0 25px !important;
-    height: 60px;
-    vertical-align: middle !important;
-    border-top: 0 !important;
+  border-bottom-width: 2px;
+  font-weight: 600;
+  border-bottom: 0 !important;
+  font-size: 14px;
+  border-top-width: 0px;
+  border-bottom: 1px solid;
+  border-color: #ebedf2 !important;
+  padding: 0 25px !important;
+  height: 60px;
+  vertical-align: middle !important;
+  border-top: 0 !important;
 }
 
 .utrecht-html table tbody {
-    border-top: 1px solid #dee2e6 !important;
+  border-top: 1px solid #dee2e6 !important;
 }
 
 .utrecht-html table tbody td {
-    font-size: 14px;
-    border-top-width: 0px;
-    border-top: 0 !important;
-    border-bottom: 1px solid #dee2e6 !important;
-    border-color: #ebedf2 !important;
-    padding: 0 25px !important;
-    height: 60px;
-    vertical-align: middle !important;
+  font-size: 14px;
+  border-top-width: 0px;
+  border-top: 0 !important;
+  border-bottom: 1px solid #dee2e6 !important;
+  border-color: #ebedf2 !important;
+  padding: 0 25px !important;
+  height: 60px;
+  vertical-align: middle !important;
 }

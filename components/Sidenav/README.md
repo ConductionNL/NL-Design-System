@@ -1,3 +1,3 @@
 #Sidenav
 
-Info over the sidenav  component
+Info over the sidenav component
