@@ -1,16 +1,23 @@
 import * as React from "react";
 
 interface TabsProps {
-  items: Array<Partial<Record<"name" | "active" | "id", any>>>;
+  tabs: ITabItems[];
+}
+
+interface ITabItems {
+  name: string;
+  active?: boolean;
+  id: string;
+  onClick?: () => void;
 }
 
 /**
  * This components renders tabs.
  * @returns JSX of the generated tabs.
  */
-export const Tabs: React.FC<TabsProps> = ({ items }) => {
-  const navItems = items.map((item) => (
-    <li className="nav-item" role="presentation" key={item.name}>
+export const Tabs: React.FC<TabsProps> = ({ tabs }) => {
+  const navItems = tabs.map((item) => (
+    <li className="nav-item" role="presentation" key={item.name} onClick={item?.onClick}>
       <a
         className={item?.active ? "nav-link active" : "nav-link"}
         id={item.id + "-tab"}
