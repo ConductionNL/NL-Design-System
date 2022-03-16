@@ -6,9 +6,7 @@
   "license": "EUPL-1.2",
   "name": "@conductionnl/nl-design-system",
   "private": false,
-  "files": [
-    "lib/**/*"
-  ],
+  "files": ["lib/**/*"],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "publishConfig": {
@@ -30,10 +28,7 @@
     "build-storybook": "build-storybook"
   },
   "website": "https://www.conduction.nl/",
-  "keywords": [
-    "nl-design-system",
-    "Conduction"
-  ],
+  "keywords": ["nl-design-system", "Conduction"],
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
