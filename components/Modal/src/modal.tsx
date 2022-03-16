@@ -12,7 +12,7 @@ interface ModalProps {
  *
  * @returns JSX of the generated Modal.
  */
-export const Modal: React.FC<ModalProps> = ({ title, id, body, footer}) => {
+export const Modal: React.FC<ModalProps> = ({ title, id, body, footer }) => {
   return (
     <div
       className="modal fade"
